@@ -33,11 +33,12 @@ export default route(function (/* { store, ssrContext } */) {
     routes: [
       {
         path: '/',
-        component: () => import('layouts/index.vue')
+        component: () => import('@/layouts/index.vue'),
+        children: routes
       },
       {
         path: '/:catchAll(.*)*',
-        component: () => import('pages/404.vue')
+        component: () => import('@/pages/404.vue')
       }
     ],
     scrollBehavior: () => ({ left: 0, top: 0 })

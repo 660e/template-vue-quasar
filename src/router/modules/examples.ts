@@ -1,8 +1,17 @@
 export default {
-  path: 'examples',
+  path: '/examples',
   name: 'examples',
   meta: {
     title: 'examples'
   },
-  children: []
+  children: [
+    {
+      path: 'acl',
+      name: 'examples-acl',
+      meta: {
+        title: 'acl'
+      },
+      component: () => import('@/pages/examples/acl.vue')
+    }
+  ]
 };

@@ -1,15 +1,7 @@
 import { defineStore } from 'pinia';
 
-export const useCounterStore = defineStore('counter', {
+export const useAclStore = defineStore('acl', {
   state: () => ({
-    counter: 0
-  }),
-  getters: {
-    doubleCount: state => state.counter * 2
-  },
-  actions: {
-    increment() {
-      this.counter++;
-    }
-  }
+    acl: ['level-1']
+  })
 });
