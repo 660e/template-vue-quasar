@@ -1,1 +1,26 @@
-// app global css in SCSS form
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: $grey-6;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: $grey-7;
+}
+
+body {
+  font-family: consolas, monaco, microsoft yahei, pingfang sc;
+}
+pre {
+  margin: 0;
+}
+
+.border-primary {
+  border: 1px solid $primary;
+}
