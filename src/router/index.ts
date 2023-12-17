@@ -1,10 +1,5 @@
 import { route } from 'quasar/wrappers';
-import {
-  createMemoryHistory,
-  createRouter,
-  createWebHashHistory,
-  createWebHistory,
-} from 'vue-router';
+import { createMemoryHistory, createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
 
 /*
  * If not building with SSR mode, you can
@@ -27,14 +22,14 @@ export default route(function (/* { store, ssrContext } */) {
     routes: [
       {
         path: '/',
-        component: () => import('../layouts/index.vue'),
-      },
+        component: () => import('../layouts/index.vue')
+      }
     ],
 
     // Leave this as is and make changes in quasar.conf.js instead!
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
-    history: createHistory(process.env.VUE_ROUTER_BASE),
+    history: createHistory(process.env.VUE_ROUTER_BASE)
   });
 
   return Router;
