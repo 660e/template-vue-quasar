@@ -2,6 +2,8 @@
 import { ref } from 'vue';
 import $package from '../../package.json';
 
+import LayoutMenu from './components/layout-menu.vue';
+
 defineOptions({ name: 'app-layout' });
 
 const drawer = ref(true);
@@ -10,6 +12,9 @@ const toggle = () => {
 };
 
 const tweak = (offset: number, height: number) => ({ height: `${height - offset}px` });
+
+const exclude: string[] = [];
+const include: string[] = [];
 </script>
 
 <template>
@@ -22,12 +27,14 @@ const tweak = (offset: number, height: number) => ({ height: `${height - offset}
         <q-btn :icon="$q.dark.isActive ? 'brightness_5' : 'brightness_4'" @click="$q.dark.toggle()" dense flat round />
       </q-toolbar>
     </q-header>
-    <q-drawer v-model="drawer" :width="200" bordered></q-drawer>
+    <q-drawer v-model="drawer" :width="200" bordered>
+      <layout-menu />
+    </q-drawer>
     <q-page-container>
       <q-page :style-fn="tweak" class="overflow-auto">
         <router-view v-slot="{ Component }">
           <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
-            <keep-alive>
+            <keep-alive :exclude="exclude" :include="include">
               <component :is="Component" />
             </keep-alive>
           </transition>
