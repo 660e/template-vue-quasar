@@ -12,6 +12,14 @@ export default {
         title: 'acl'
       },
       component: () => import('@/pages/examples/acl.vue')
+    },
+    {
+      path: 'axios',
+      name: 'examples-axios',
+      meta: {
+        title: 'axios'
+      },
+      component: () => import('@/pages/examples/axios.vue')
     }
   ]
 };
