@@ -1,10 +1,14 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 import $package from '../../package.json';
 
 import LayoutMenu from './components/layout-menu.vue';
 
 defineOptions({ name: 'app-layout' });
+
+const $route = useRoute();
+console.log($route.matched);
 
 const drawer = ref(true);
 const toggle = () => {
