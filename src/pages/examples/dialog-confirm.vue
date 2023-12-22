@@ -11,8 +11,8 @@ const confirm = (): void => {
   loading.value = true;
   examplesApi
     .randomuser({ seed: props.seed })
-    .then(r => {
-      emit('confirm', r.data);
+    .then(response => {
+      emit('confirm', response.data);
       cancel();
     })
     .finally(() => {

@@ -10,8 +10,8 @@ const pre = ref();
 const async = (): void => {
   examplesApi
     .randomuser()
-    .then(r => {
-      pre.value = r.data;
+    .then(response => {
+      pre.value = response.data;
     })
     .catch(error => {
       console.log(error.message);
@@ -22,8 +22,8 @@ const async = (): void => {
 };
 const sync = async (): Promise<void> => {
   try {
-    const r = await examplesApi.randomuser();
-    pre.value = r.data;
+    const response = await examplesApi.randomuser();
+    pre.value = response.data;
   } catch (error: unknown) {
     console.log((error as Error).message);
   } finally {
