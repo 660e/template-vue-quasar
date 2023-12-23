@@ -2,6 +2,7 @@ import { route } from 'quasar/wrappers';
 import { createMemoryHistory, createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 import examples from './modules/examples';
+import extensions from './modules/extensions';
 
 /*
  * If not building with SSR mode, you can
@@ -12,7 +13,7 @@ import examples from './modules/examples';
  * with the Router instance.
  */
 
-export const routes: RouteRecordRaw[] = [examples];
+export const routes: RouteRecordRaw[] = [examples, extensions];
 
 export default route(function (/* { store, ssrContext } */) {
   let createHistory;
