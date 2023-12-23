@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
+import { useQuasar } from 'quasar';
 import $package from '../../package.json';
 
 import LayoutMenu from './components/layout-menu.vue';
@@ -9,6 +10,9 @@ defineOptions({ name: 'app-layout' });
 
 const $route = useRoute();
 console.log($route.matched);
+
+const $q = useQuasar();
+console.log($q.version);
 
 const drawer = ref(true);
 const toggle = () => {
