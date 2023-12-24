@@ -28,6 +28,14 @@ export default {
         title: 'dialog'
       },
       component: () => import('@/pages/examples/dialog.vue')
+    },
+    {
+      path: 'g2',
+      name: 'examples-g2',
+      meta: {
+        title: 'g2'
+      },
+      component: () => import('@/pages/examples/g2.vue')
     }
   ]
 };

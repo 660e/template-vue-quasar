@@ -17,6 +17,7 @@ console.log($q.version);
 const drawer = ref(true);
 const toggle = () => {
   drawer.value = !drawer.value;
+  window.dispatchEvent(new Event('resize'));
 };
 
 const tweak = (offset: number, height: number) => ({ height: `${height - offset}px` });
