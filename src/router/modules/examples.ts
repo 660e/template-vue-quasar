@@ -37,6 +37,14 @@ export default {
         title: 'g2'
       },
       component: () => import('@/pages/examples/g2.vue')
+    },
+    {
+      path: 'hooks',
+      name: 'examples-hooks',
+      meta: {
+        title: 'hooks'
+      },
+      component: () => import('@/pages/examples/hooks.vue')
     }
   ]
 };
