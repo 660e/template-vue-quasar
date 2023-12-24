@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { uid } from 'quasar';
 
-import DialogConfirm from './dialog-confirm.vue';
+import ConfirmDialog from './dialogs/confirm.vue';
 
 defineOptions({ name: 'examples-dialog' });
 
@@ -26,6 +26,6 @@ const confirm = (resolve: object): void => {
       <q-btn @click="dialog = !dialog" label="get" color="primary" unelevated />
     </div>
     <pre>{{ pre }}</pre>
-    <dialog-confirm v-model="dialog" @confirm="confirm" :seed="seed" />
+    <confirm-dialog v-model="dialog" @confirm="confirm" :seed="seed" />
   </div>
 </template>

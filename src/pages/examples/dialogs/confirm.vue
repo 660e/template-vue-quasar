@@ -2,6 +2,8 @@
 import { ref } from 'vue';
 import { examplesApi } from '@/apis/examples';
 
+defineOptions({ name: 'confirm-dialog' });
+
 const props = defineProps<{ seed: string }>();
 const emit = defineEmits(['confirm', 'update:model-value']);
 

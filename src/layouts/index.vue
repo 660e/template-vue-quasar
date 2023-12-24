@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 import { useQuasar } from 'quasar';
 import $package from '../../package.json';
 
-import LayoutMenu from './components/layout-menu.vue';
+import MenuComponent from './components/menu.vue';
 
 defineOptions({ name: 'app-layout' });
 
@@ -36,7 +36,7 @@ const include: string[] = [];
       </q-toolbar>
     </q-header>
     <q-drawer v-model="drawer" :width="200" bordered>
-      <layout-menu />
+      <menu-component />
     </q-drawer>
     <q-page-container>
       <q-page :style-fn="tweak" class="overflow-auto">

@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import { routes } from '@/router';
+
+defineOptions({ name: 'menu-component' });
 </script>
 
 <template>
