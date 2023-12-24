@@ -45,6 +45,14 @@ export default {
         title: 'hooks'
       },
       component: () => import('@/pages/examples/hooks.vue')
+    },
+    {
+      path: 'i18n',
+      name: 'examples-i18n',
+      meta: {
+        title: 'i18n'
+      },
+      component: () => import('@/pages/examples/i18n.vue')
     }
   ]
 };
