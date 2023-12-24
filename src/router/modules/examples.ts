@@ -2,6 +2,7 @@ export default {
   path: '/examples',
   name: 'examples',
   meta: {
+    icon: 'widgets',
     title: 'examples'
   },
   children: [
