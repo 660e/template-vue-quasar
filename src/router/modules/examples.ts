@@ -94,6 +94,14 @@ export default {
         title: 'transition'
       },
       component: () => import('@/pages/examples/transition.vue')
+    },
+    {
+      path: 'vuelidate',
+      name: 'examples-vuelidate',
+      meta: {
+        title: 'vuelidate'
+      },
+      component: () => import('@/pages/examples/vuelidate.vue')
     }
   ]
 };
