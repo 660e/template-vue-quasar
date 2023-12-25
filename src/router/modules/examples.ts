@@ -53,6 +53,15 @@ export default {
         title: 'i18n'
       },
       component: () => import('@/pages/examples/i18n.vue')
+    },
+    {
+      path: 'keep-alive',
+      name: 'examples-keep-alive',
+      meta: {
+        keepAlive: true,
+        title: 'keep-alive'
+      },
+      component: () => import('@/pages/examples/keep-alive.vue')
     }
   ]
 };
