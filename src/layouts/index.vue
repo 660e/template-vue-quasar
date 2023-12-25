@@ -40,7 +40,7 @@ const include: string[] = [];
       <menu-component />
     </q-drawer>
     <q-page-container>
-      <q-page :style-fn="tweak" class="overflow-auto">
+      <q-page :style-fn="tweak" class="overflow-y-auto overflow-x-hidden">
         <router-view v-slot="{ Component }">
           <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
             <keep-alive :exclude="exclude" :include="include">

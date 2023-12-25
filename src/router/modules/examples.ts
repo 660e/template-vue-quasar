@@ -78,6 +78,22 @@ export default {
         title: 'ref'
       },
       component: () => import('@/pages/examples/ref.vue')
+    },
+    {
+      path: 'tailwindcss',
+      name: 'examples-tailwindcss',
+      meta: {
+        title: 'tailwindcss'
+      },
+      component: () => import('@/pages/examples/tailwindcss.vue')
+    },
+    {
+      path: 'transition',
+      name: 'examples-transition',
+      meta: {
+        title: 'transition'
+      },
+      component: () => import('@/pages/examples/transition.vue')
     }
   ]
 };
