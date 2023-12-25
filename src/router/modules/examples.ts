@@ -62,6 +62,22 @@ export default {
         title: 'keep-alive'
       },
       component: () => import('@/pages/examples/keep-alive.vue')
+    },
+    {
+      path: 'reactive',
+      name: 'examples-reactive',
+      meta: {
+        title: 'reactive'
+      },
+      component: () => import('@/pages/examples/reactive.vue')
+    },
+    {
+      path: 'ref',
+      name: 'examples-ref',
+      meta: {
+        title: 'ref'
+      },
+      component: () => import('@/pages/examples/ref.vue')
     }
   ]
 };
