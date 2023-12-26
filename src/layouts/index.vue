@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, type RouteRecordRaw } from 'vue-router';
 import { useQuasar } from 'quasar';
+import { routes } from '@/router';
 import $package from '../../package.json';
 
 import MenuComponent from './components/menu.vue';
@@ -22,8 +23,16 @@ const toggle = () => {
 
 const tweak = (offset: number, height: number) => ({ height: `${height - offset}px` });
 
+const filterKeepAlive = (data: RouteRecordRaw[]) => {
+  const results: string[] = [];
+  data.forEach(d => {
+    if (d.meta?.keepAlive) results.push(d.name as string);
+    if (d.children?.length) results.push(...filterKeepAlive(d.children));
+  });
+  return results;
+};
 const exclude: string[] = [];
-const include: string[] = [];
+const include: string[] = filterKeepAlive(routes);
 </script>
 
 <template>
