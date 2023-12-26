@@ -7,7 +7,14 @@ defineOptions({ name: 'menu-component' });
 <template>
   <q-list padding>
     <template v-for="route in routes" :key="route.name">
-      <q-expansion-item v-if="route.children?.length" :label="route.meta?.title" :icon="route.meta?.icon" dense>
+      <q-expansion-item
+        v-if="route.children?.length"
+        :label="route.meta?.title"
+        :icon="route.meta?.icon"
+        :default-opened="route.name === $route.matched[1].name"
+        group="group"
+        dense
+      >
         <q-item v-for="child in route.children" :key="child.name" :to="{ name: child.name }" clickable dense v-ripple>
           <q-item-section avatar>
             <q-icon />
