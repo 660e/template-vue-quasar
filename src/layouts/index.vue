@@ -1,19 +1,12 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { useRoute, type RouteRecordRaw } from 'vue-router';
-import { useQuasar } from 'quasar';
 import { routes } from '@/router';
 import $package from '../../package.json';
+import type { RouteRecordRaw } from 'vue-router';
 
 import MenuComponent from './components/menu.vue';
 
 defineOptions({ name: 'app-layout' });
-
-const $route = useRoute();
-console.log($route.matched);
-
-const $q = useQuasar();
-console.log($q.version);
 
 const drawer = ref(true);
 const toggle = () => {
@@ -21,7 +14,7 @@ const toggle = () => {
   window.dispatchEvent(new Event('resize'));
 };
 
-const tweak = (offset: number, height: number) => ({ height: `${height - offset}px` });
+const tweak = (offset: number, height: number) => ({ height: `${height - offset - 32 - 1}px` });
 
 const filterKeepAlive = (data: RouteRecordRaw[]) => {
   const results: string[] = [];
@@ -58,6 +51,18 @@ const include: string[] = filterKeepAlive(routes);
           </transition>
         </router-view>
       </q-page>
+      <div>
+        <q-separator />
+        <div class="h-8 overflow-hidden flex justify-between items-center px-4">
+          <div class="flex space-x-1">
+            <template v-for="(route, index) in $route.matched.filter(e => e.name)" :key="index">
+              <span v-if="index !== 0">/</span>
+              <span>{{ route.meta.title }}</span>
+            </template>
+          </div>
+          <div class="text-gray-400 text-xs">{{ $package.version }}-{{ $q.version }}</div>
+        </div>
+      </div>
     </q-page-container>
   </q-layout>
 </template>
