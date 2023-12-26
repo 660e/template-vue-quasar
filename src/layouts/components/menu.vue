@@ -11,7 +11,7 @@ defineOptions({ name: 'menu-component' });
         v-if="route.children?.length"
         :label="route.meta?.title"
         :icon="route.meta?.icon"
-        :default-opened="route.name === $route.matched[1].name"
+        :default-opened="route.name === $route.matched[1]?.name"
         group="group"
         dense
       >
