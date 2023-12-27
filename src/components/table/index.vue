@@ -3,5 +3,5 @@ defineOptions({ name: 'c-table' });
 </script>
 
 <template>
-  <div>table</div>
+  <q-table v-bind="$attrs" bordered flat />
 </template>
