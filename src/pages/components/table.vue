@@ -3,5 +3,7 @@ defineOptions({ name: 'components-table' });
 </script>
 
 <template>
-  <div class="p-4">table</div>
+  <div class="p-4">
+    <c-table />
+  </div>
 </template>
