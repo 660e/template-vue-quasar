@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import type { Node } from './models/data';
+import type { Node } from './models';
 
 defineOptions({ name: 'extensions-cascader' });
 
