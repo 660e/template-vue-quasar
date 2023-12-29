@@ -16,6 +16,12 @@ onMounted(() => {
     <template v-slot:loading>
       <q-inner-loading class="z-10" color="primary" showing />
     </template>
+
+    <template v-slot:body-cell-gender="props">
+      <q-td :props="props">
+        <q-icon :name="props.row.gender" :color="props.row.gender === 'male' ? 'primary' : 'negative'" size="xs" />
+      </q-td>
+    </template>
   </q-table>
 </template>
 
