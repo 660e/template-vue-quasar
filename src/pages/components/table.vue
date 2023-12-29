@@ -22,7 +22,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="h-full p-4">
-    <c-table :rows="rows" :columns="columns" />
+  <div class="h-full p-4 flex">
+    <c-table :rows="rows" :columns="columns" class="flex-1" />
   </div>
 </template>

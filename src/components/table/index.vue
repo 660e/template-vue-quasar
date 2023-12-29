@@ -1,15 +1,22 @@
 <script lang="ts" setup>
+import { onMounted, ref } from 'vue';
+
 defineOptions({ name: 'c-table' });
+
+const height = ref('auto');
+const CTable = ref();
+
+onMounted(() => {
+  height.value = `${CTable.value.$el.clientHeight}px`;
+});
 </script>
 
 <template>
-  <q-table v-bind="$attrs" :rows-per-page-options="[20, 50, 100]" class="c-table" bordered flat />
+  <q-table v-bind="$attrs" :rows-per-page-options="[10, 20, 50]" :style="{ height }" ref="CTable" class="c-table" bordered flat />
 </template>
 
 <style lang="scss" scoped>
 .c-table {
-  height: 500px;
-
   :deep(thead tr:first-child th),
   :deep(.q-table__bottom) {
     background-color: theme('colors.gray.100');
