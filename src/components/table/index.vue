@@ -12,7 +12,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <q-table v-bind="$attrs" :rows-per-page-options="[10, 20, 50]" :style="{ height }" ref="CTable" class="c-table" bordered flat />
+  <q-table v-bind="$attrs" :rows-per-page-options="[10, 20, 50]" :style="{ height }" ref="CTable" class="c-table" bordered flat>
+    <template v-slot:loading>
+      <q-inner-loading class="z-10" color="primary" showing />
+    </template>
+  </q-table>
 </template>
 
 <style lang="scss" scoped>

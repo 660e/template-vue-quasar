@@ -13,16 +13,18 @@ const columns = [
   { label: 'email', field: 'email' },
   { label: 'date', field: (row: Row) => row.dob.date }
 ];
+const loading = ref(true);
 
 onMounted(() => {
   examplesApi.randomuser({ results: 100 }).then(response => {
     rows.value = response.data.results;
+    loading.value = false;
   });
 });
 </script>
 
 <template>
   <div class="h-full p-4 flex">
-    <c-table :rows="rows" :columns="columns" class="flex-1" />
+    <c-table :rows="rows" :columns="columns" :loading="loading" class="flex-1" />
   </div>
 </template>
