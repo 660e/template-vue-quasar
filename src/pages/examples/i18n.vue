@@ -7,7 +7,7 @@ defineOptions({ name: 'examples-i18n' });
 const { locale, t } = useI18n();
 const text = ref(t('language'));
 
-const language = (lang: string): void => {
+const language = (lang: string) => {
   locale.value = lang;
 };
 

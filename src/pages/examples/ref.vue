@@ -7,19 +7,19 @@ const a = ref(0);
 const b = ref({ x: 0 });
 const c = ref([0]);
 
-const fn1 = (): void => {
+const fn1 = () => {
   a.value++;
 };
-const fn2 = (): void => {
+const fn2 = () => {
   b.value.x++;
 };
-const fn3 = (): void => {
+const fn3 = () => {
   b.value = { x: 0 };
 };
-const fn4 = (): void => {
+const fn4 = () => {
   c.value[0]++;
 };
-const fn5 = (): void => {
+const fn5 = () => {
   c.value = [0];
 };
 </script>

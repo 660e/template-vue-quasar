@@ -17,8 +17,8 @@ const rules = {
 };
 const v$ = useVuelidate(rules, state);
 
-const touch = (): void => v$.value.$touch();
-const reset = (): void => v$.value.$reset();
+const touch = () => v$.value.$touch();
+const reset = () => v$.value.$reset();
 </script>
 
 <template>

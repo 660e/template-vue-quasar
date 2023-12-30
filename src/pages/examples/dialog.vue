@@ -10,10 +10,10 @@ const seed = ref(uid());
 const dialog = ref(false);
 const pre = ref();
 
-const random = (): void => {
+const random = () => {
   seed.value = uid();
 };
-const confirm = (resolve: object): void => {
+const confirm = (resolve: object) => {
   pre.value = resolve;
 };
 </script>

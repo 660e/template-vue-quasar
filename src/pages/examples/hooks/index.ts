@@ -4,7 +4,7 @@ export function useMouse(): { x: Ref<number>; y: Ref<number> } {
   const x = ref(0);
   const y = ref(0);
 
-  function update(event: MouseEvent): void {
+  function update(event: MouseEvent) {
     x.value = event.pageX;
     y.value = event.pageY;
   }

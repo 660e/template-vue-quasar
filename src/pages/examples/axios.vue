@@ -7,7 +7,7 @@ defineOptions({ name: 'examples-axios' });
 
 const pre = ref();
 
-const async = (): void => {
+const async = () => {
   examplesApi
     .randomuser()
     .then(response => {
@@ -20,7 +20,7 @@ const async = (): void => {
       console.log('finally');
     });
 };
-const sync = async (): Promise<void> => {
+const sync = async () => {
   try {
     const response = await examplesApi.randomuser();
     pre.value = response.data;
@@ -30,7 +30,7 @@ const sync = async (): Promise<void> => {
     console.log('finally');
   }
 };
-const abort = (): void => {
+const abort = () => {
   controller.abort();
 };
 </script>

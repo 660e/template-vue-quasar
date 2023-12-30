@@ -8,25 +8,25 @@ const b = reactive({ x: [0] });
 const c = reactive([0]);
 const d = reactive({ d: new Date() });
 
-const fn1 = (): void => {
+const fn1 = () => {
   a.x.y++;
 };
-const fn2 = (): void => {
+const fn2 = () => {
   a.x = { y: 0 };
 };
-const fn3 = (): void => {
+const fn3 = () => {
   b.x[0]++;
 };
-const fn4 = (): void => {
+const fn4 = () => {
   b.x = [0];
 };
-const fn5 = (): void => {
+const fn5 = () => {
   c.push(c[c.length - 1] + 1);
 };
-const fn6 = (): void => {
+const fn6 = () => {
   if (c.length > 1) c.splice(c.length - 1, 1);
 };
-const fn7 = (): void => {
+const fn7 = () => {
   d.d = new Date();
 };
 </script>

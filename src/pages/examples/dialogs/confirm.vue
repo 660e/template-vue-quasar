@@ -9,7 +9,7 @@ const emit = defineEmits(['confirm', 'update:model-value']);
 
 const loading = ref(false);
 
-const confirm = (): void => {
+const confirm = () => {
   loading.value = true;
   examplesApi
     .randomuser({ seed: props.seed })
@@ -21,7 +21,7 @@ const confirm = (): void => {
       loading.value = false;
     });
 };
-const cancel = (): void => {
+const cancel = () => {
   emit('update:model-value', false);
 };
 </script>
