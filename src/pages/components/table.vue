@@ -19,7 +19,7 @@ const columns = [
 const loading = ref(true);
 const handles: CTableHandle[] = [
   { label: 'edit', event: 'edit' },
-  { label: 'remove', event: 'remove' }
+  { label: 'remove', event: 'remove', color: 'negative' }
 ];
 
 onMounted(() => {

@@ -1,17 +1,23 @@
 <script lang="ts" setup>
 import type { CTableHandle } from './index';
-import type { QTableProps } from 'quasar';
 
 defineOptions({ name: 'c-table-handle' });
-
-const props = defineProps<{
+defineProps<{
   handles: CTableHandle[];
-  props: QTableProps;
+  props: any;
 }>();
-
-console.log(props);
 </script>
 
 <template>
-  <div>handle</div>
+  <div class="space-x-2">
+    <q-btn
+      v-for="handle in $props.handles"
+      :key="handle.label"
+      :label="handle.label"
+      :color="handle.color || 'primary'"
+      size="13px"
+      padding="0 sm"
+      outline
+    />
+  </div>
 </template>
