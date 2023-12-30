@@ -3,18 +3,17 @@ import { onMounted, ref } from 'vue';
 import { date } from 'quasar';
 import { examplesApi } from '@/apis/examples';
 
-import type { Row } from './models';
 import type { CTableHandle } from '@/components/table';
 
 defineOptions({ name: 'components-table' });
 
-const rows = ref<Row[]>([]);
+const rows = ref();
 const columns = [
-  { name: 'name', label: 'name', field: (row: Row) => `${row.name.title} ${row.name.first} ${row.name.last}`, align: 'left' },
+  { name: 'name', label: 'name', field: (row: any) => `${row.name.title} ${row.name.first} ${row.name.last}`, align: 'left' },
   { name: 'gender', label: 'gender', field: 'gender' },
-  { name: 'age', label: 'age', field: (row: Row) => row.dob.age },
+  { name: 'age', label: 'age', field: (row: any) => row.dob.age },
   { name: 'email', label: 'email', field: 'email' },
-  { name: 'date', label: 'date', field: (row: Row) => row.dob.date, format: (val: string) => date.formatDate(val, 'YYYY-MM-DD HH:mm:ss') },
+  { name: 'date', label: 'date', field: (row: any) => row.dob.date, format: (val: string) => date.formatDate(val, 'YYYY-MM-DD HH:mm:ss') },
   { name: 'handle', label: 'handle' }
 ];
 const loading = ref(true);

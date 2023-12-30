@@ -72,6 +72,8 @@ module.exports = {
 
     'quotes': ['warn', 'single', { avoidEscape: true }],
 
+    '@typescript-eslint/no-explicit-any': 'off',
+
     // this rule, if on, would require explicit return type on the `render` function
     '@typescript-eslint/explicit-function-return-type': 'off',
 
