@@ -26,6 +26,10 @@ onMounted(() => {
 
 <template>
   <div class="h-full p-4 flex">
-    <c-table :rows="rows" :columns="columns" :loading="loading" class="flex-1"></c-table>
+    <c-table :rows="rows" :columns="columns" :loading="loading" class="flex-1">
+      <template v-slot:gender="{ props }">
+        <q-icon :name="props.value" :color="props.value === 'male' ? 'primary' : 'negative'" size="xs" />
+      </template>
+    </c-table>
   </div>
 </template>

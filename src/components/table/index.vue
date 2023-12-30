@@ -1,10 +1,14 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, useSlots } from 'vue';
 
 defineOptions({ name: 'c-table' });
 
+const $slots = useSlots();
+
 const height = ref('auto');
 const CTable = ref();
+
+const slots = Object.keys($slots);
 
 onMounted(() => {
   height.value = `${CTable.value.$el.clientHeight}px`;
@@ -17,9 +21,9 @@ onMounted(() => {
       <q-inner-loading class="z-10" color="primary" showing />
     </template>
 
-    <template v-slot:body-cell-gender="props">
+    <template v-for="slot in slots" :key="slot" v-slot:[`body-cell-${slot}`]="props">
       <q-td :props="props">
-        <q-icon :name="props.row.gender" :color="props.row.gender === 'male' ? 'primary' : 'negative'" size="xs" />
+        <slot :name="slot" :props="props" />
       </q-td>
     </template>
   </q-table>
