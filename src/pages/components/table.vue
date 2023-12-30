@@ -18,8 +18,8 @@ const columns = [
 ];
 const loading = ref(true);
 const handles: CTableHandle[] = [
-  { label: 'edit', event: 'edit' },
-  { label: 'remove', event: 'remove', color: 'negative' }
+  { label: 'edit', click: (row: any) => console.log(row) },
+  { label: 'remove', click: (row: any) => console.log(row), color: 'negative' }
 ];
 
 onMounted(() => {

@@ -15,6 +15,7 @@ defineProps<{
       :key="handle.label"
       :label="handle.label"
       :color="handle.color || 'primary'"
+      @click="handle.click($props.props.row)"
       size="13px"
       padding="0 sm"
       outline
