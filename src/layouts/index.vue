@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { routes } from '@/router';
+import { RouteRecordRaw } from 'vue-router';
 import $package from '../../package.json';
-import type { RouteRecordRaw } from 'vue-router';
 
 import MenuComponent from './components/menu.vue';
 

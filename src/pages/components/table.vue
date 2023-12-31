@@ -1,25 +1,24 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
-import { date } from 'quasar';
+import { date, QTableColumn } from 'quasar';
 import { examplesApi } from '@/apis/examples';
-
-import type { CTableHandle } from '@/components/table';
+import { CTableHandle } from '@/components/table';
 
 defineOptions({ name: 'components-table' });
 
 const rows = ref();
-const columns = [
-  { name: 'name', label: 'name', field: (row: any) => `${row.name.title} ${row.name.first} ${row.name.last}`, align: 'left' },
+const columns: QTableColumn[] = [
+  { name: 'name', label: 'name', field: row => `${row.name.title} ${row.name.first} ${row.name.last}`, align: 'left' },
   { name: 'gender', label: 'gender', field: 'gender' },
-  { name: 'age', label: 'age', field: (row: any) => row.dob.age },
+  { name: 'age', label: 'age', field: row => row.dob.age },
   { name: 'email', label: 'email', field: 'email' },
-  { name: 'date', label: 'date', field: (row: any) => row.dob.date, format: (val: string) => date.formatDate(val, 'YYYY-MM-DD HH:mm:ss') },
-  { name: 'handle', label: 'handle' }
+  { name: 'date', label: 'date', field: row => row.dob.date, format: val => date.formatDate(val, 'YYYY-MM-DD HH:mm:ss') },
+  { name: 'handle', label: 'handle', field: 'handle' }
 ];
 const loading = ref(true);
 const handles: CTableHandle[] = [
-  { label: 'edit', click: (row: any) => console.log(row) },
-  { label: 'remove', click: (row: any) => console.log(row), color: 'negative' }
+  { label: 'edit', click: row => console.log(row), hide: row => row.dob.age < 60 },
+  { label: 'remove', click: row => console.log(row), color: 'negative', disable: row => row.dob.age >= 60 }
 ];
 
 onMounted(() => {

@@ -1,5 +1,5 @@
 import { route } from 'quasar/wrappers';
-import { createMemoryHistory, createRouter, createWebHashHistory, createWebHistory, type RouteRecordRaw } from 'vue-router';
+import { createMemoryHistory, createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 import components from './modules/components';
 import examples from './modules/examples';

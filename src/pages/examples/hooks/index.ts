@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted, type Ref } from 'vue';
+import { onMounted, onUnmounted, ref, Ref } from 'vue';
 
 export function useMouse(): { x: Ref<number>; y: Ref<number> } {
   const x = ref(0);
