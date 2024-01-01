@@ -18,7 +18,13 @@ const columns: QTableColumn[] = [
 const loading = ref(true);
 const handles: CTableHandle[] = [
   { label: 'edit', click: row => console.log(row), hide: row => row.dob.age < 60 },
-  { label: 'remove', click: row => console.log(row), color: 'negative', disable: row => row.dob.age >= 60 }
+  {
+    label: 'remove',
+    click: row => console.log(row),
+    color: 'negative',
+    disable: row => row.dob.age >= 60,
+    tooltip: row => (row.dob.age >= 60 ? row.email : '')
+  }
 ];
 
 onMounted(() => {
