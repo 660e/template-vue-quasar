@@ -6,16 +6,16 @@ defineOptions({ name: 'c-table' });
 const CTable = ref();
 
 const height = ref('auto');
-const maxWidth = ref('none');
+const width = ref('auto');
 
 onMounted(() => {
   height.value = `${CTable.value.$el.clientHeight}px`;
-  maxWidth.value = `${CTable.value.$el.clientWidth}px`;
+  width.value = `${CTable.value.$el.clientWidth}px`;
 });
 </script>
 
 <template>
-  <q-table v-bind="$attrs" :rows-per-page-options="[10, 20, 50]" :style="{ height, maxWidth }" ref="CTable" class="c-table" bordered flat>
+  <q-table v-bind="$attrs" :rows-per-page-options="[20, 50, 100]" :style="{ height, width }" ref="CTable" class="c-table" bordered flat>
     <template v-slot:loading>
       <q-inner-loading class="z-10" color="primary" showing />
     </template>
@@ -30,18 +30,52 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .c-table {
-  :deep(thead tr:first-child th),
+  :deep(.q-table__middle) {
+    th {
+      background-color: theme('colors.gray.100');
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      &:first-child {
+        left: 0;
+        z-index: 3;
+      }
+      &:last-child {
+        right: 0;
+        z-index: 3;
+      }
+    }
+    td {
+      &:first-child,
+      &:last-child {
+        background-color: theme('colors.white');
+        position: sticky;
+        z-index: 1;
+      }
+      &:first-child {
+        left: 0;
+      }
+      &:last-child {
+        right: 0;
+      }
+    }
+  }
   :deep(.q-table__bottom) {
     background-color: theme('colors.gray.100');
-    top: 0;
-  }
-  :deep(thead tr th) {
-    position: sticky;
-    z-index: 1;
   }
 
   &.q-table--dark {
-    :deep(thead tr:first-child th),
+    :deep(.q-table__middle) {
+      th {
+        background-color: theme('colors.gray.900');
+      }
+      td {
+        &:first-child,
+        &:last-child {
+          background-color: $dark;
+        }
+      }
+    }
     :deep(.q-table__bottom) {
       background-color: theme('colors.gray.900');
     }
