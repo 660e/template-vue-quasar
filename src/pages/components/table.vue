@@ -9,24 +9,23 @@ defineOptions({ name: 'components-table' });
 const rows = ref();
 const columns: QTableColumn[] = [
   { name: 'name', label: 'name', field: row => `${row.name.title} ${row.name.first} ${row.name.last}`, align: 'left' },
-  { name: 'gender', label: 'gender', field: 'gender' },
-  { name: 'age', label: 'age', field: row => row.dob.age },
-  { name: 'email', label: 'email', field: 'email' },
-  { name: 'location', label: 'location', field: row => `${row.location.country} ${row.location.state} ${row.location.city}` },
-  { name: 'coordinates', label: 'coordinates', field: row => `${row.location.coordinates.latitude}, ${row.location.coordinates.longitude}` },
-  { name: 'date', label: 'date', field: row => row.dob.date, format: val => date.formatDate(val, 'YYYY-MM-DD HH:mm:ss') },
-  { name: 'handle', label: 'handle', field: 'handle' }
+  { name: 'gender', label: 'gender', field: 'gender', align: 'left' },
+  { name: 'age', label: 'age', field: row => row.dob.age, align: 'left' },
+  { name: 'email', label: 'email', field: 'email', align: 'left' },
+  { name: 'location', label: 'location', field: row => `${row.location.country} ${row.location.state} ${row.location.city}`, align: 'left' },
+  {
+    name: 'coordinates',
+    label: 'coordinates',
+    field: row => `${row.location.coordinates.latitude}, ${row.location.coordinates.longitude}`,
+    align: 'left'
+  },
+  { name: 'date', label: 'date', field: row => row.dob.date, format: val => date.formatDate(val, 'YYYY-MM-DD HH:mm:ss'), align: 'left' },
+  { name: 'handle', label: 'handle', field: 'handle', align: 'left' }
 ];
 const loading = ref(true);
 const handles: CTableHandle[] = [
-  { label: 'edit', click: row => console.log(row), hide: row => row.dob.age < 60 },
-  {
-    label: 'remove',
-    click: row => console.log(row),
-    color: 'negative',
-    disable: row => row.dob.age >= 60,
-    tooltip: row => (row.dob.age >= 60 ? row.email : '')
-  }
+  { label: 'edit', click: row => console.log(row), disable: row => row.dob.age >= 60, tooltip: row => (row.dob.age >= 60 ? row.email : '') },
+  { label: 'remove', click: row => console.log(row), color: 'negative', hide: row => row.dob.age < 60 }
 ];
 
 onMounted(() => {
