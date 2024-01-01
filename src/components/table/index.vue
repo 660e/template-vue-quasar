@@ -3,16 +3,19 @@ import { onMounted, ref } from 'vue';
 
 defineOptions({ name: 'c-table' });
 
-const height = ref('auto');
 const CTable = ref();
+
+const height = ref('auto');
+const maxWidth = ref('none');
 
 onMounted(() => {
   height.value = `${CTable.value.$el.clientHeight}px`;
+  maxWidth.value = `${CTable.value.$el.clientWidth}px`;
 });
 </script>
 
 <template>
-  <q-table v-bind="$attrs" :rows-per-page-options="[10, 20, 50]" :style="{ height }" ref="CTable" class="c-table" bordered flat>
+  <q-table v-bind="$attrs" :rows-per-page-options="[10, 20, 50]" :style="{ height, maxWidth }" ref="CTable" class="c-table" bordered flat>
     <template v-slot:loading>
       <q-inner-loading class="z-10" color="primary" showing />
     </template>

@@ -12,6 +12,8 @@ const columns: QTableColumn[] = [
   { name: 'gender', label: 'gender', field: 'gender' },
   { name: 'age', label: 'age', field: row => row.dob.age },
   { name: 'email', label: 'email', field: 'email' },
+  { name: 'location', label: 'location', field: row => `${row.location.country} ${row.location.state} ${row.location.city}` },
+  { name: 'coordinates', label: 'coordinates', field: row => `${row.location.coordinates.latitude}, ${row.location.coordinates.longitude}` },
   { name: 'date', label: 'date', field: row => row.dob.date, format: val => date.formatDate(val, 'YYYY-MM-DD HH:mm:ss') },
   { name: 'handle', label: 'handle', field: 'handle' }
 ];
