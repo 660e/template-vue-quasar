@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
+import { QTableColumn } from 'quasar';
 
 defineOptions({ name: 'c-table' });
 
@@ -15,7 +16,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <q-table v-bind="$attrs" :rows-per-page-options="[20, 50, 100]" :style="{ height, width }" ref="CTable" class="c-table" bordered flat>
+  <q-table
+    v-bind="$attrs"
+    :rows-per-page-options="[20, 50, 100]"
+    :style="{ height, width }"
+    :class="{ 'c-table-handle': ($attrs.columns as QTableColumn[]).map(column => column.name).includes('handle') }"
+    class="c-table"
+    ref="CTable"
+    bordered
+    flat
+  >
     <template v-slot:loading>
       <q-inner-loading class="z-10" color="primary" showing />
     </template>
@@ -40,10 +50,6 @@ onMounted(() => {
         left: 0;
         z-index: 3;
       }
-      &:last-child {
-        right: 0;
-        z-index: 3;
-      }
     }
     td {
       &:first-child,
@@ -55,13 +61,17 @@ onMounted(() => {
       &:first-child {
         left: 0;
       }
-      &:last-child {
-        right: 0;
-      }
     }
   }
   :deep(.q-table__bottom) {
     background-color: theme('colors.gray.100');
+  }
+
+  &.c-table-handle :deep(.q-table__middle) {
+    th:last-child,
+    td:last-child {
+      right: 0;
+    }
   }
 
   &.q-table--dark {
