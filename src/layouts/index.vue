@@ -30,7 +30,6 @@ const include: string[] = filterKeepAlive(routes);
 
 <template>
   <q-layout view="hhh lpr fff" class="overflow-hidden">
-    <q-ajax-bar />
     <q-header>
       <q-toolbar>
         <q-btn @click="toggle" icon="menu" dense flat round />

@@ -1,4 +1,5 @@
 import { route } from 'quasar/wrappers';
+import { LoadingBar } from 'quasar';
 import { createMemoryHistory, createRouter, createWebHashHistory, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 import components from './modules/components';
@@ -47,9 +48,12 @@ export default route(function (/* { store, ssrContext } */) {
   });
 
   Router.beforeEach((to, from, next) => {
-    console.log(to);
-    console.log(from);
+    LoadingBar.start();
     next();
+  });
+
+  Router.afterEach(() => {
+    LoadingBar.stop();
   });
 
   return Router;
