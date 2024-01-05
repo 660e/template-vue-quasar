@@ -23,14 +23,6 @@ export default {
       component: () => import('@/pages/examples/axios.vue')
     },
     {
-      path: 'dialog',
-      name: 'examples-dialog',
-      meta: {
-        title: 'dialog'
-      },
-      component: () => import('@/pages/examples/dialog.vue')
-    },
-    {
       path: 'g2',
       name: 'examples-g2',
       meta: {

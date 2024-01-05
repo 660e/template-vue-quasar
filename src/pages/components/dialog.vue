@@ -4,7 +4,7 @@ import { uid } from 'quasar';
 
 import ConfirmDialog from './dialogs/confirm.vue';
 
-defineOptions({ name: 'examples-dialog' });
+defineOptions({ name: 'components-dialog' });
 
 const seed = ref(uid());
 const dialog = ref(false);

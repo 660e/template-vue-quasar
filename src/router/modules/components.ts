@@ -7,6 +7,14 @@ export default {
   },
   children: [
     {
+      path: 'dialog',
+      name: 'components-dialog',
+      meta: {
+        title: 'dialog'
+      },
+      component: () => import('@/pages/components/dialog.vue')
+    },
+    {
       path: 'table',
       name: 'components-table',
       meta: {
