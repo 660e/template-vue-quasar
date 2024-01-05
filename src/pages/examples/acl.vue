@@ -4,7 +4,7 @@ import { useAclStore } from '@/stores/example-store';
 
 defineOptions({ name: 'examples-acl' });
 
-const $store = useAclStore();
+const $aclStore = useAclStore();
 
 const level = ref(1);
 const options = reactive([
@@ -16,13 +16,13 @@ const options = reactive([
 watch(level, n => {
   switch (n) {
     case 1:
-      $store.acl = ['level-1'];
+      $aclStore.acl = ['level-1'];
       break;
     case 2:
-      $store.acl = ['level-1', 'level-2'];
+      $aclStore.acl = ['level-1', 'level-2'];
       break;
     case 3:
-      $store.acl = ['level-1', 'level-2', 'level-3'];
+      $aclStore.acl = ['level-1', 'level-2', 'level-3'];
       break;
   }
 });
@@ -36,6 +36,6 @@ watch(level, n => {
       <div v-acl="['level-2', 'level-3']">level-2: Provident consequatur officiis obcaecati ea!</div>
       <div v-acl="['level-3']">level-3: Eligendi ab nihil corporis amet!</div>
     </div>
-    <pre>{{ $store.acl }}</pre>
+    <pre>{{ $aclStore.acl }}</pre>
   </div>
 </template>

@@ -27,7 +27,7 @@ export default route(function (/* { store, ssrContext } */) {
     createHistory = createWebHashHistory;
   }
 
-  return createRouter({
+  const Router = createRouter({
     // Leave this as is and make changes in quasar.conf.js instead!
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
@@ -45,4 +45,12 @@ export default route(function (/* { store, ssrContext } */) {
     ],
     scrollBehavior: () => ({ left: 0, top: 0 })
   });
+
+  Router.beforeEach((to, from, next) => {
+    console.log(to);
+    console.log(from);
+    next();
+  });
+
+  return Router;
 });
