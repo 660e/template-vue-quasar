@@ -7,11 +7,14 @@ import ConfirmDialog from './dialogs/confirm.vue';
 defineOptions({ name: 'components-dialog' });
 
 const seed = ref(uid());
-const dialog = ref(false);
+const dialog = ref();
 const pre = ref();
 
 const random = () => {
   seed.value = uid();
+};
+const get = () => {
+  dialog.value.show(seed.value);
 };
 const confirm = (resolve: object) => {
   pre.value = resolve;
@@ -23,9 +26,9 @@ const confirm = (resolve: object) => {
     <q-input v-model="seed" label="seed" class="w-96" dense outlined readonly />
     <div class="space-x-2">
       <q-btn @click="random" label="random" color="primary" unelevated />
-      <q-btn @click="dialog = !dialog" label="get" color="primary" unelevated />
+      <q-btn @click="get" label="get" color="primary" unelevated />
     </div>
     <pre>{{ pre }}</pre>
-    <confirm-dialog v-model="dialog" @confirm="confirm" :seed="seed" />
+    <confirm-dialog @confirm="confirm" ref="dialog" />
   </div>
 </template>

@@ -4,42 +4,38 @@ import { examplesApi } from '@/apis/examples';
 
 defineOptions({ name: 'confirm-dialog' });
 
-const props = defineProps<{ seed: string }>();
-const emit = defineEmits(['confirm', 'update:model-value']);
+const $emit = defineEmits(['confirm', 'update:model-value']);
 
-const loading = ref(false);
+const dialog = ref(false);
+const seed = ref();
 
-const confirm = () => {
-  loading.value = true;
-  examplesApi
-    .randomuser({ seed: props.seed })
-    .then(response => {
-      emit('confirm', response.data);
-      cancel();
-    })
-    .finally(() => {
-      loading.value = false;
-    });
+const show = (params: string) => {
+  seed.value = params;
+  dialog.value = true;
 };
 const cancel = () => {
-  emit('update:model-value', false);
+  console.log('cancel');
+  dialog.value = false;
 };
+const confirm = () => {
+  console.log('confirm');
+  examplesApi.randomuser({ seed: seed.value }).then(response => {
+    $emit('confirm', response.data);
+    cancel();
+  });
+};
+
+defineExpose({ show });
 </script>
 
 <template>
-  <q-dialog v-bind="$attrs" :persistent="loading" @hide="cancel">
-    <q-card>
-      <q-card-section class="space-y-4">
-        <q-field label="seed" class="w-96" dense outlined readonly stack-label>
-          <template v-slot:control>
-            <div>{{ seed }}</div>
-          </template>
-        </q-field>
-        <div class="flex justify-end space-x-2">
-          <q-btn :disable="loading" @click="cancel" label="cancel" color="primary" outline />
-          <q-btn :loading="loading" @click="confirm" label="confirm" color="primary" unelevated />
-        </div>
-      </q-card-section>
-    </q-card>
-  </q-dialog>
+  <c-dialog v-model="dialog" @cancel="cancel" @confirm="confirm" title="CONFIRM">
+    <div class="p-4">
+      <q-field label="seed" class="w-96" dense outlined readonly stack-label>
+        <template v-slot:control>
+          <div>{{ seed }}</div>
+        </template>
+      </q-field>
+    </div>
+  </c-dialog>
 </template>
