@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { tooltipJumpUp } from '@/components';
+
 defineOptions({ name: 'c-dialog' });
 defineProps<{ title: string }>();
 defineEmits(['cancel', 'confirm']);
@@ -10,7 +12,7 @@ defineEmits(['cancel', 'confirm']);
       <div class="bg-gray-100 flex justify-between items-center">
         <div class="pl-2">{{ $props.title }}</div>
         <q-btn color="negative" icon="close" padding="sm" size="sm" flat v-close-popup>
-          <q-tooltip>Close</q-tooltip>
+          <q-tooltip v-bind="tooltipJumpUp">Close</q-tooltip>
         </q-btn>
       </div>
 
