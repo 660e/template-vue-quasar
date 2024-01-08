@@ -4,14 +4,14 @@ import { QTableColumn } from 'quasar';
 
 defineOptions({ name: 'c-table' });
 
-const CTable = ref();
+const CTableRef = ref();
 
 const height = ref('auto');
 const width = ref('auto');
 
 onMounted(() => {
-  height.value = `${CTable.value.$el.clientHeight}px`;
-  width.value = `${CTable.value.$el.clientWidth}px`;
+  height.value = `${CTableRef.value.$el.clientHeight}px`;
+  width.value = `${CTableRef.value.$el.clientWidth}px`;
 });
 </script>
 
@@ -22,7 +22,7 @@ onMounted(() => {
     :style="{ height, width }"
     :class="{ 'c-table-handle': ($attrs.columns as QTableColumn[]).map(column => column.name).includes('handle') }"
     class="c-table"
-    ref="CTable"
+    ref="CTableRef"
     bordered
     flat
   >
