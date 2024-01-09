@@ -35,6 +35,11 @@ export default route(function (/* { store, ssrContext } */) {
     history: createHistory(process.env.VUE_ROUTER_BASE),
     routes: [
       {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/login/index.vue')
+      },
+      {
         path: '/',
         component: () => import('@/layouts/index.vue'),
         children: routes
