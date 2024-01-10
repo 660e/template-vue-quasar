@@ -36,7 +36,7 @@ watchEffect(() => {
       :label="handle.label"
       :color="color(handle)"
       :disable="disable(handle)"
-      @click="handle.click($props.props.row)"
+      @click="handle.click(props.row)"
       size="13px"
       padding="0 sm"
       outline

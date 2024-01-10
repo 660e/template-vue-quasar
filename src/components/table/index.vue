@@ -39,56 +39,5 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-.c-table {
-  :deep(.q-table__middle) {
-    th {
-      background-color: theme('colors.gray.100');
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      &:first-child {
-        left: 0;
-        z-index: 3;
-      }
-    }
-    td {
-      &:first-child,
-      &:last-child {
-        background-color: theme('colors.white');
-        position: sticky;
-        z-index: 1;
-      }
-      &:first-child {
-        left: 0;
-      }
-    }
-  }
-  :deep(.q-table__bottom) {
-    background-color: theme('colors.gray.100');
-  }
-
-  &.c-table-handle :deep(.q-table__middle) {
-    th:last-child,
-    td:last-child {
-      right: 0;
-    }
-  }
-
-  &.q-table--dark {
-    :deep(.q-table__middle) {
-      th {
-        background-color: theme('colors.gray.900');
-      }
-      td {
-        &:first-child,
-        &:last-child {
-          background-color: $dark;
-        }
-      }
-    }
-    :deep(.q-table__bottom) {
-      background-color: theme('colors.gray.900');
-    }
-  }
-}
+@import './index.scss';
 </style>
