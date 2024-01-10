@@ -46,8 +46,11 @@ onMounted(() => {
   >
     <template v-slot:top>
       <div class="flex-1">
-        <div class="flex p-2">
+        <div class="flex p-2 space-x-2">
           <q-space />
+          <q-btn @click="$emit('refresh')" icon="refresh" class="self-center" dense flat round>
+            <q-tooltip>Refresh</q-tooltip>
+          </q-btn>
           <q-select
             v-model="visibleColumns"
             :options="visibleColumnsOptions"

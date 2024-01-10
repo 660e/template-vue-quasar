@@ -28,17 +28,22 @@ const handles: CTableHandle[] = [
   { label: 'remove', click: row => console.log(row), color: 'negative', hide: row => row.dob.age < 60 }
 ];
 
-onMounted(() => {
+const refresh = () => {
+  loading.value = true;
   examplesApi.randomuser({ results: 100 }).then(response => {
     rows.value = response.data.results;
     loading.value = false;
   });
+};
+
+onMounted(() => {
+  refresh();
 });
 </script>
 
 <template>
   <div class="h-full p-4 flex">
-    <c-table :rows="rows" :columns="columns" :loading="loading" class="flex-1">
+    <c-table :rows="rows" :columns="columns" :loading="loading" @refresh="refresh" class="flex-1">
       <template v-slot:gender="{ props }">
         <q-icon :name="props.value" :color="props.value === 'male' ? 'primary' : 'negative'" size="xs" />
       </template>

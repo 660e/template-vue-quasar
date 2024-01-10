@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
-import { tooltipJumpUp } from '@/components';
 
 defineOptions({ name: 'c-dialog' });
 withDefaults(
@@ -33,9 +32,7 @@ const handlePan = (ev: any) => {
       <div class="bg-gray-100 flex items-center">
         <div v-if="title" class="px-2">{{ title }}</div>
         <q-space v-touch-pan.prevent.mouse="handlePan" class="self-stretch cursor-grab" />
-        <q-btn :disable="loading" color="negative" icon="close" padding="sm" size="sm" flat v-close-popup>
-          <q-tooltip v-if="!loading" v-bind="tooltipJumpUp">Close</q-tooltip>
-        </q-btn>
+        <q-btn :disable="loading" color="negative" icon="close" padding="sm" size="sm" flat v-close-popup />
       </div>
 
       <q-separator />
