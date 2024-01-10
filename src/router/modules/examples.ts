@@ -1,5 +1,5 @@
 export default {
-  path: '/examples',
+  path: 'examples',
   name: 'examples',
   meta: {
     icon: 'widgets',

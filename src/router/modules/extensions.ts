@@ -1,5 +1,5 @@
 export default {
-  path: '/extensions',
+  path: 'extensions',
   name: 'extensions',
   meta: {
     icon: 'extension',

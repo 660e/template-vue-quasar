@@ -15,7 +15,20 @@ import extensions from './modules/extensions';
  * with the Router instance.
  */
 
-export const routes: RouteRecordRaw[] = [components, examples, extensions];
+export const routes: RouteRecordRaw[] = [
+  {
+    path: 'home',
+    name: 'home',
+    meta: {
+      icon: 'home',
+      title: 'home'
+    },
+    component: () => import('@/pages/home.vue')
+  },
+  components,
+  examples,
+  extensions
+];
 
 export default route(function (/* { store, ssrContext } */) {
   let createHistory;
@@ -41,6 +54,7 @@ export default route(function (/* { store, ssrContext } */) {
       },
       {
         path: '/',
+        redirect: 'login',
         component: () => import('@/layouts/index.vue'),
         children: routes
       },

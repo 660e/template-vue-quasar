@@ -1,5 +1,5 @@
 export default {
-  path: '/components',
+  path: 'components',
   name: 'components',
   meta: {
     icon: 'subtitles',

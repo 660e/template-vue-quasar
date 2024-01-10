@@ -24,7 +24,7 @@ defineOptions({ name: 'menu-component' });
       </q-expansion-item>
       <q-item v-else :to="{ name: route.name }" clickable dense v-ripple>
         <q-item-section avatar>
-          <q-icon name="info_outline" />
+          <q-icon :icon="route.meta?.icon" />
         </q-item-section>
         <q-item-section>{{ route.meta?.title }}</q-item-section>
       </q-item>
