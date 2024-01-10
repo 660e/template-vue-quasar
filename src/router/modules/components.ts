@@ -3,14 +3,14 @@ export default {
   name: 'components',
   meta: {
     icon: 'subtitles',
-    title: 'components'
+    title: 'Components'
   },
   children: [
     {
       path: 'dialog',
       name: 'components-dialog',
       meta: {
-        title: 'dialog'
+        title: 'Dialog'
       },
       component: () => import('@/pages/components/dialog.vue')
     },
@@ -18,7 +18,7 @@ export default {
       path: 'table',
       name: 'components-table',
       meta: {
-        title: 'table'
+        title: 'Table'
       },
       component: () => import('@/pages/components/table.vue')
     }

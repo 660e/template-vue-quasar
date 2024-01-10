@@ -34,9 +34,9 @@ defineExpose({ show });
 </script>
 
 <template>
-  <c-dialog v-model="dialog" :loading="loading" @cancel="cancel" @confirm="confirm" title="CONFIRM">
+  <c-dialog v-model="dialog" :loading="loading" @cancel="cancel" @confirm="confirm" title="Confirm">
     <div class="p-4">
-      <q-field label="seed" class="w-96" dense outlined readonly stack-label>
+      <q-field label="Seed" class="w-96" dense outlined readonly stack-label>
         <template v-slot:control>
           <div>{{ seed }}</div>
         </template>

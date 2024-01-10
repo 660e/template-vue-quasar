@@ -23,10 +23,10 @@ const confirm = (resolve: object) => {
 
 <template>
   <div class="p-4 space-y-4">
-    <q-input v-model="seed" label="seed" class="w-96" dense outlined readonly />
+    <q-input v-model="seed" label="Seed" class="w-96" dense outlined readonly />
     <div class="space-x-2">
-      <q-btn @click="random" label="random" color="primary" unelevated />
-      <q-btn @click="get" label="get" color="primary" unelevated />
+      <q-btn @click="random" label="Random" color="primary" no-caps unelevated />
+      <q-btn @click="get" label="Get" color="primary" no-caps unelevated />
     </div>
     <pre>{{ pre }}</pre>
     <confirm-dialog @confirm="confirm" ref="dialogRef" />

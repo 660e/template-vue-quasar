@@ -32,9 +32,7 @@ const include: string[] = filterKeepAlive(routes);
   <q-layout view="hhh lpr fff" class="overflow-hidden">
     <q-header>
       <q-toolbar>
-        <q-btn @click="toggle" icon="menu" dense flat round>
-          <q-tooltip>Menu</q-tooltip>
-        </q-btn>
+        <q-btn @click="toggle" icon="menu" dense flat round />
         <q-toolbar-title>{{ $package.productName }}</q-toolbar-title>
         <q-btn :icon="$q.dark.isActive ? 'brightness_5' : 'brightness_4'" @click="$q.dark.toggle()" dense flat round>
           <q-tooltip>{{ $q.dark.isActive ? 'Light' : 'Dark' }}</q-tooltip>

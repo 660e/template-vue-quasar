@@ -20,7 +20,7 @@ watch(
 <template>
   <div class="p-4 space-y-4">
     <div class="space-x-2">
-      <q-btn @click="language('en-US')" label="English" color="primary" unelevated />
+      <q-btn @click="language('en-US')" label="English" color="primary" no-caps unelevated />
       <q-btn @click="language('zh-CN')" label="中文" color="primary" unelevated />
     </div>
     <div>

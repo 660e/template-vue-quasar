@@ -11,16 +11,16 @@ const fade = ref(true);
 <template>
   <div class="p-4 space-y-4">
     <transition name="custom" mode="out-in">
-      <section v-if="custom" @click="custom = !custom">custom</section>
-      <section v-else @click="custom = !custom">custom</section>
+      <section v-if="custom" @click="custom = !custom">Custom</section>
+      <section v-else @click="custom = !custom">Custom</section>
     </transition>
     <transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight" mode="out-in">
-      <section v-if="bounce" @click="bounce = !bounce">bounce</section>
-      <section v-else @click="bounce = !bounce">bounce</section>
+      <section v-if="bounce" @click="bounce = !bounce">Bounce</section>
+      <section v-else @click="bounce = !bounce">Bounce</section>
     </transition>
     <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
-      <section v-if="fade" @click="fade = !fade">fade</section>
-      <section v-else @click="fade = !fade">fade</section>
+      <section v-if="fade" @click="fade = !fade">Fade</section>
+      <section v-else @click="fade = !fade">Fade</section>
     </transition>
   </div>
 </template>

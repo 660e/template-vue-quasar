@@ -8,9 +8,9 @@ const $aclStore = useAclStore();
 
 const level = ref(1);
 const options = reactive([
-  { label: 'level-1', value: 1 },
-  { label: 'level-2', value: 2 },
-  { label: 'level-3', value: 3 }
+  { label: 'Level-1', value: 1 },
+  { label: 'Level-2', value: 2 },
+  { label: 'Level-3', value: 3 }
 ]);
 
 watch(level, n => {
@@ -30,7 +30,7 @@ watch(level, n => {
 
 <template>
   <div class="p-4 space-y-4">
-    <q-btn-toggle v-model="level" :options="options" class="border-primary" text-color="primary" unelevated />
+    <q-btn-toggle v-model="level" :options="options" class="border-primary" text-color="primary" no-caps unelevated />
     <div class="space-y-2">
       <div v-acl="['level-1', 'level-2', 'level-3']">level-1: Lorem ipsum dolor sit amet.</div>
       <div v-acl="['level-2', 'level-3']">level-2: Provident consequatur officiis obcaecati ea!</div>

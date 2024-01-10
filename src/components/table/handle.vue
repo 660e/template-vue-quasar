@@ -39,6 +39,7 @@ watchEffect(() => {
       @click="handle.click(props.row)"
       size="13px"
       padding="0 sm"
+      no-caps
       outline
     >
       <q-tooltip v-if="tooltip(handle)">{{ tooltip(handle) }}</q-tooltip>

@@ -3,14 +3,14 @@ export default {
   name: 'examples',
   meta: {
     icon: 'widgets',
-    title: 'examples'
+    title: 'Examples'
   },
   children: [
     {
       path: 'acl',
       name: 'examples-acl',
       meta: {
-        title: 'acl'
+        title: 'Acl'
       },
       component: () => import('@/pages/examples/acl.vue')
     },
@@ -18,7 +18,7 @@ export default {
       path: 'axios',
       name: 'examples-axios',
       meta: {
-        title: 'axios'
+        title: 'Axios'
       },
       component: () => import('@/pages/examples/axios.vue')
     },
@@ -26,7 +26,7 @@ export default {
       path: 'g2',
       name: 'examples-g2',
       meta: {
-        title: 'g2'
+        title: 'G2'
       },
       component: () => import('@/pages/examples/g2.vue')
     },
@@ -34,7 +34,7 @@ export default {
       path: 'hooks',
       name: 'examples-hooks',
       meta: {
-        title: 'hooks'
+        title: 'Hooks'
       },
       component: () => import('@/pages/examples/hooks.vue')
     },
@@ -42,7 +42,7 @@ export default {
       path: 'i18n',
       name: 'examples-i18n',
       meta: {
-        title: 'i18n'
+        title: 'I18n'
       },
       component: () => import('@/pages/examples/i18n.vue')
     },
@@ -51,7 +51,7 @@ export default {
       name: 'examples-keep-alive',
       meta: {
         keepAlive: true,
-        title: 'keep-alive'
+        title: 'keepAlive'
       },
       component: () => import('@/pages/examples/keep-alive.vue')
     },
@@ -59,7 +59,7 @@ export default {
       path: 'reactive',
       name: 'examples-reactive',
       meta: {
-        title: 'reactive'
+        title: 'Reactive'
       },
       component: () => import('@/pages/examples/reactive.vue')
     },
@@ -67,7 +67,7 @@ export default {
       path: 'ref',
       name: 'examples-ref',
       meta: {
-        title: 'ref'
+        title: 'Ref'
       },
       component: () => import('@/pages/examples/ref.vue')
     },
@@ -75,7 +75,7 @@ export default {
       path: 'tailwindcss',
       name: 'examples-tailwindcss',
       meta: {
-        title: 'tailwindcss'
+        title: 'Tailwindcss'
       },
       component: () => import('@/pages/examples/tailwindcss.vue')
     },
@@ -83,7 +83,7 @@ export default {
       path: 'transition',
       name: 'examples-transition',
       meta: {
-        title: 'transition'
+        title: 'Transition'
       },
       component: () => import('@/pages/examples/transition.vue')
     },
@@ -91,7 +91,7 @@ export default {
       path: 'vuelidate',
       name: 'examples-vuelidate',
       meta: {
-        title: 'vuelidate'
+        title: 'Vuelidate'
       },
       component: () => import('@/pages/examples/vuelidate.vue')
     }

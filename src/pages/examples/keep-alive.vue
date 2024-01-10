@@ -8,6 +8,6 @@ const input = ref();
 
 <template>
   <div class="p-4">
-    <q-input v-model="input" label="input" class="w-96" dense outlined />
+    <q-input v-model="input" label="Input" class="w-96" dense outlined />
   </div>
 </template>

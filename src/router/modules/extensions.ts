@@ -3,14 +3,14 @@ export default {
   name: 'extensions',
   meta: {
     icon: 'extension',
-    title: 'extensions'
+    title: 'Extensions'
   },
   children: [
     {
       path: 'cascader',
       name: 'extensions-cascader',
       meta: {
-        title: 'cascader'
+        title: 'Cascader'
       },
       component: () => import('@/pages/extensions/cascader.vue')
     }

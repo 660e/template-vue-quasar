@@ -38,9 +38,9 @@ const abort = () => {
 <template>
   <div class="p-4 space-y-4">
     <div class="space-x-2">
-      <q-btn @click="async" label="async" color="primary" unelevated />
-      <q-btn @click="sync" label="sync" color="primary" unelevated />
-      <q-btn @click="abort" label="abort" color="negative" unelevated />
+      <q-btn @click="async" label="Async" color="primary" no-caps unelevated />
+      <q-btn @click="sync" label="Sync" color="primary" no-caps unelevated />
+      <q-btn @click="abort" label="Abort" color="negative" no-caps unelevated />
     </div>
     <pre>{{ pre }}</pre>
   </div>

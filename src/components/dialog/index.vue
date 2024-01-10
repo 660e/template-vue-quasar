@@ -40,8 +40,8 @@ const handlePan = (ev: any) => {
       <q-separator />
 
       <div class="bg-gray-100 flex justify-end p-2 space-x-2">
-        <q-btn :disable="loading" @click="$emit('cancel')" label="cancel" color="primary" flat />
-        <q-btn :loading="loading" @click="$emit('confirm')" label="confirm" color="primary" unelevated />
+        <q-btn :disable="loading" @click="$emit('cancel')" label="Cancel" color="primary" no-caps flat />
+        <q-btn :loading="loading" @click="$emit('confirm')" label="Confirm" color="primary" no-caps unelevated />
       </div>
     </q-card>
   </q-dialog>

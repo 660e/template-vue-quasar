@@ -21,7 +21,7 @@ export const routes: RouteRecordRaw[] = [
     name: 'home',
     meta: {
       icon: 'home',
-      title: 'home'
+      title: 'Home'
     },
     component: () => import('@/pages/home.vue')
   },

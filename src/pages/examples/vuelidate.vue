@@ -29,8 +29,8 @@ const reset = () => v$.value.$reset();
         :error="v$.a.$error"
         :error-message="v$.a.$error ? v$.a.$errors[0].$message as string : undefined"
         @input="v$.a.$touch"
-        label="a"
-        hint="required"
+        label="A"
+        hint="Required"
         dense
         outlined
       />
@@ -39,8 +39,8 @@ const reset = () => v$.value.$reset();
         :error="v$.b.$error"
         :error-message="v$.b.$error ? v$.b.$errors[0].$message as string : undefined"
         @input="v$.b.$touch"
-        label="b"
-        hint="email"
+        label="B"
+        hint="Email"
         dense
         outlined
       />
@@ -49,14 +49,14 @@ const reset = () => v$.value.$reset();
         :error="v$.c.$error"
         error-message="value.length !== 4"
         @input="v$.c.$touch"
-        label="c"
+        label="C"
         hint="value.length === 4"
         dense
         outlined
       />
       <div class="space-x-2">
-        <q-btn @click="touch" label="touch" color="primary" unelevated />
-        <q-btn @click="reset" label="reset" color="primary" unelevated />
+        <q-btn @click="touch" label="Touch" color="primary" no-caps unelevated />
+        <q-btn @click="reset" label="Reset" color="primary" no-caps unelevated />
       </div>
     </div>
     <pre>{{ v$ }}</pre>
