@@ -4,9 +4,10 @@ import { examplesApi } from '@/apis/examples';
 
 defineOptions({ name: 'confirm-dialog' });
 
-const $emit = defineEmits(['confirm', 'update:model-value']);
+const $emit = defineEmits(['confirm']);
 
 const dialog = ref(false);
+const loading = ref(false);
 const seed = ref();
 
 const show = (params: string) => {
@@ -14,22 +15,26 @@ const show = (params: string) => {
   dialog.value = true;
 };
 const cancel = () => {
-  console.log('cancel');
   dialog.value = false;
 };
 const confirm = () => {
-  console.log('confirm');
-  examplesApi.randomuser({ seed: seed.value }).then(response => {
-    $emit('confirm', response.data);
-    cancel();
-  });
+  loading.value = true;
+  examplesApi
+    .randomuser({ seed: seed.value })
+    .then(response => {
+      $emit('confirm', response.data);
+      cancel();
+    })
+    .finally(() => {
+      loading.value = false;
+    });
 };
 
 defineExpose({ show });
 </script>
 
 <template>
-  <c-dialog v-model="dialog" @cancel="cancel" @confirm="confirm" title="CONFIRM">
+  <c-dialog v-model="dialog" :loading="loading" @cancel="cancel" @confirm="confirm" title="CONFIRM">
     <div class="p-4">
       <q-field label="seed" class="w-96" dense outlined readonly stack-label>
         <template v-slot:control>

@@ -25,7 +25,7 @@ const signIn = () => {
   <q-card class="h-screen flex justify-center" flat>
     <div class="flex flex-col items-center py-8">
       <img src="@/assets/quasar-logo-vertical.svg" class="w-40 mb-8" />
-      <div class="border border-gray-300 rounded p-4 space-y-4 w-80 bg-gray-50">
+      <div class="border border-gray-300 rounded p-4 space-y-4 w-80 bg-gray-100">
         <q-input v-model="form.username" :disable="loading" label="Username" type="text" class="bg-white" dense outlined />
         <q-input v-model="form.password" :disable="loading" label="Password" type="password" class="bg-white" dense outlined />
         <q-btn :loading="loading" @click="signIn" label="Sign in" color="primary" class="w-full" padding="sm 0" unelevated no-caps />

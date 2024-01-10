@@ -3,7 +3,15 @@ import { reactive, ref } from 'vue';
 import { tooltipJumpUp } from '@/components';
 
 defineOptions({ name: 'c-dialog' });
-defineProps<{ title: string }>();
+withDefaults(
+  defineProps<{
+    title?: string;
+    loading?: boolean;
+  }>(),
+  {
+    loading: false
+  }
+);
 defineEmits(['cancel', 'confirm']);
 
 const cardRef = ref();
@@ -20,21 +28,23 @@ const handlePan = (ev: any) => {
 </script>
 
 <template>
-  <q-dialog v-bind="$attrs">
+  <q-dialog v-bind="$attrs" :persistent="loading">
     <q-card :style="{ left: position.left, top: position.top }" ref="cardRef" class="absolute">
       <div class="bg-gray-100 flex items-center">
-        <div class="px-2">{{ $props.title }}</div>
+        <div v-if="title" class="px-2">{{ title }}</div>
         <q-space v-touch-pan.prevent.mouse="handlePan" class="self-stretch cursor-grab" />
-        <q-btn color="negative" icon="close" padding="sm" size="sm" flat v-close-popup>
-          <q-tooltip v-bind="tooltipJumpUp">Close</q-tooltip>
+        <q-btn :disable="loading" color="negative" icon="close" padding="sm" size="sm" flat v-close-popup>
+          <q-tooltip v-if="!loading" v-bind="tooltipJumpUp">Close</q-tooltip>
         </q-btn>
       </div>
 
+      <q-separator />
       <slot />
+      <q-separator />
 
       <div class="bg-gray-100 flex justify-end p-2 space-x-2">
-        <q-btn @click="$emit('cancel')" label="cancel" color="primary" flat />
-        <q-btn @click="$emit('confirm')" label="confirm" color="primary" unelevated />
+        <q-btn :disable="loading" @click="$emit('cancel')" label="cancel" color="primary" flat />
+        <q-btn :loading="loading" @click="$emit('confirm')" label="confirm" color="primary" unelevated />
       </div>
     </q-card>
   </q-dialog>
