@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, ref, useAttrs } from 'vue';
+import { computed, onMounted, ref, useAttrs } from 'vue';
 import { QTableColumn } from 'quasar';
 
 defineOptions({ name: 'c-table' });
@@ -12,7 +12,19 @@ const height = ref('auto');
 const width = ref('auto');
 
 const columns = $attrs.columns as QTableColumn[];
-const visibleColumns = ref(columns.filter(column => !column.required).map(column => column.label));
+const visibleColumnsOptions = columns.filter(column => !column.required).map(column => column.label);
+const visibleColumns = ref(visibleColumnsOptions);
+const cTableClass = computed(() => {
+  if (columns.map(column => column.name).includes('handle')) {
+    if (columns.find(column => column.name === 'handle')?.required) {
+      return ['c-table-handle'];
+    } else {
+      return visibleColumns.value.includes('handle') ? ['c-table-handle'] : null;
+    }
+  } else {
+    return null;
+  }
+});
 
 onMounted(() => {
   height.value = `${CTableRef.value.$el.clientHeight}px`;
@@ -25,7 +37,7 @@ onMounted(() => {
     v-bind="$attrs"
     :rows-per-page-options="[20, 50, 100]"
     :style="{ height, width }"
-    :class="{ 'c-table-handle': columns.map(column => column.name).includes('handle') }"
+    :class="cTableClass"
     :visible-columns="visibleColumns"
     class="c-table"
     ref="CTableRef"
@@ -36,12 +48,9 @@ onMounted(() => {
       <q-space />
       <q-select
         v-model="visibleColumns"
-        :options="columns.filter(column => !column.required)"
+        :options="visibleColumnsOptions"
         :display-value="$q.lang.table.columns"
-        option-value="label"
         dense
-        emit-value
-        map-options
         multiple
         options-dense
         outlined

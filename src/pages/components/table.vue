@@ -8,7 +8,7 @@ defineOptions({ name: 'components-table' });
 
 const rows = ref();
 const columns: QTableColumn[] = [
-  { name: 'name', label: 'name', field: row => `${row.name.title} ${row.name.first} ${row.name.last}`, align: 'left' },
+  { name: 'name', label: 'name', field: row => `${row.name.title} ${row.name.first} ${row.name.last}`, align: 'left', required: true },
   { name: 'gender', label: 'gender', field: 'gender', align: 'left' },
   { name: 'age', label: 'age', field: row => row.dob.age, align: 'left' },
   { name: 'email', label: 'email', field: 'email', align: 'left' },
@@ -20,7 +20,7 @@ const columns: QTableColumn[] = [
     align: 'left'
   },
   { name: 'date', label: 'date', field: row => row.dob.date, format: val => date.formatDate(val, 'YYYY-MM-DD HH:mm:ss'), align: 'left' },
-  { name: 'handle', label: 'handle', field: 'handle', align: 'left' }
+  { name: 'handle', label: 'handle', field: 'handle', align: 'left', required: true }
 ];
 const loading = ref(true);
 const handles: CTableHandle[] = [
