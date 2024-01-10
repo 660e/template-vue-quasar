@@ -45,16 +45,21 @@ onMounted(() => {
     flat
   >
     <template v-slot:top>
-      <q-space />
-      <q-select
-        v-model="visibleColumns"
-        :options="visibleColumnsOptions"
-        :display-value="$q.lang.table.columns"
-        dense
-        multiple
-        options-dense
-        outlined
-      />
+      <div class="flex-1">
+        <div class="flex p-2">
+          <q-space />
+          <q-select
+            v-model="visibleColumns"
+            :options="visibleColumnsOptions"
+            :display-value="$q.lang.table.columns"
+            dense
+            multiple
+            options-dense
+            outlined
+          />
+        </div>
+        <q-separator />
+      </div>
     </template>
 
     <template v-slot:loading>

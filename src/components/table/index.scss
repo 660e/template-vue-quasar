@@ -1,4 +1,7 @@
 .c-table {
+  :deep(.q-table__top) {
+    padding: 0;
+  }
   :deep(.q-table__middle) {
     th {
       background-color: theme('colors.gray.100');
@@ -24,6 +27,7 @@
   }
   :deep(.q-table__bottom) {
     background-color: theme('colors.gray.100');
+    padding: 4px 8px;
   }
 
   &.c-table-handle :deep(.q-table__middle) {
