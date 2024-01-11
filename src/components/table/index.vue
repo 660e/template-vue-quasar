@@ -12,8 +12,8 @@ const height = ref('auto');
 const width = ref('auto');
 
 const columns = $attrs.columns as QTableColumn[];
-const visibleColumnsOptions = columns.filter(column => !column.required).map(column => column.label);
-const visibleColumns = ref(visibleColumnsOptions);
+const visibleColumnsOptions = columns.filter(column => !column.required);
+const visibleColumns = ref(visibleColumnsOptions.map(column => column.name));
 const cTableClass = computed(() => {
   if (columns.map(column => column.name).includes('handle')) {
     if (columns.find(column => column.name === 'handle')?.required) {
@@ -55,7 +55,10 @@ onMounted(() => {
             v-model="visibleColumns"
             :options="visibleColumnsOptions"
             :display-value="$q.lang.table.columns"
+            option-value="name"
             dense
+            emit-value
+            map-options
             multiple
             options-dense
             outlined
