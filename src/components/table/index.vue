@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref, useAttrs, watch } from 'vue';
-import { extend, QTableColumn } from 'quasar';
-import { VisibleColumnsOptionsType } from './index';
+import { computed, onMounted, ref, useAttrs } from 'vue';
+import { QTableColumn } from 'quasar';
+
+import ViewColumn from './components/view-column.vue';
 
 defineOptions({ name: 'c-table' });
 
@@ -11,18 +12,12 @@ const width = ref('auto');
 
 const $attrs = useAttrs();
 const columns = $attrs.columns as QTableColumn[];
-const visibleColumnsOptions = ref(
-  extend(
-    true,
-    [],
-    columns
-      .filter(column => !column.required)
-      .map(column => {
-        return { name: column.name, label: column.label, checked: true };
-      })
-  ) as VisibleColumnsOptionsType[]
-);
-const visibleColumns = ref(visibleColumnsOptions.value.map(column => column.name));
+
+const visibleColumns = ref();
+const selected = (selected: string[]) => {
+  visibleColumns.value = selected;
+};
+
 const cTableClass = computed(() => {
   if (columns.map(column => column.name).includes('handle')) {
     if (columns.find(column => column.name === 'handle')?.required) {
@@ -39,14 +34,6 @@ onMounted(() => {
   height.value = `${CTableRef.value.$el.clientHeight}px`;
   width.value = `${CTableRef.value.$el.clientWidth}px`;
 });
-
-watch(
-  () => visibleColumnsOptions,
-  n => {
-    visibleColumns.value = n.value.filter(column => column.checked).map(column => column.name);
-  },
-  { deep: true }
-);
 </script>
 
 <template>
@@ -68,16 +55,7 @@ watch(
           <q-btn @click="$emit('refresh')" icon="refresh" dense outline>
             <q-tooltip>Refresh</q-tooltip>
           </q-btn>
-          <q-btn icon="view_column" dense outline>
-            <q-tooltip>{{ $q.lang.table.columns }}</q-tooltip>
-            <q-menu>
-              <q-list dense>
-                <q-item v-for="option in visibleColumnsOptions" :key="option.name" @click="option.checked = !option.checked" clickable>
-                  <q-item-section :class="{ 'text-primary': option.checked }">{{ option.label }}</q-item-section>
-                </q-item>
-              </q-list>
-            </q-menu>
-          </q-btn>
+          <view-column :columns="columns" @selected="selected" />
         </div>
         <q-separator />
       </div>
