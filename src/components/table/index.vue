@@ -5,13 +5,11 @@ import { VisibleColumnsOptionsType } from './index';
 
 defineOptions({ name: 'c-table' });
 
-const $attrs = useAttrs();
-
 const CTableRef = ref();
-
 const height = ref('auto');
 const width = ref('auto');
 
+const $attrs = useAttrs();
 const columns = $attrs.columns as QTableColumn[];
 const visibleColumnsOptions = ref(
   extend(
@@ -20,15 +18,10 @@ const visibleColumnsOptions = ref(
     columns
       .filter(column => !column.required)
       .map(column => {
-        return {
-          name: column.name,
-          label: column.label,
-          checked: true
-        };
+        return { name: column.name, label: column.label, checked: true };
       })
   ) as VisibleColumnsOptionsType[]
 );
-
 const visibleColumns = ref(visibleColumnsOptions.value.map(column => column.name));
 const cTableClass = computed(() => {
   if (columns.map(column => column.name).includes('handle')) {
@@ -52,9 +45,7 @@ watch(
   n => {
     visibleColumns.value = n.value.filter(column => column.checked).map(column => column.name);
   },
-  {
-    deep: true
-  }
+  { deep: true }
 );
 </script>
 
