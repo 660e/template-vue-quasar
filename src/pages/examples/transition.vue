@@ -29,7 +29,7 @@ const fade = ref(true);
 section {
   height: 40px;
   width: 400px;
-  background-color: $grey-3;
+  background-color: theme('colors.gray.300');
   display: flex;
   justify-content: center;
   align-items: center;

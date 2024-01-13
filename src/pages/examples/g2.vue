@@ -34,10 +34,10 @@ onMounted(() => {
 
 <template>
   <div class="p-4 grid grid-cols-2 gap-4">
-    <div class="border border-gray-200 rounded overflow-x-hidden">
+    <div class="border border-gray-300 rounded overflow-x-hidden">
       <div id="container-a"></div>
     </div>
-    <div class="border border-gray-200 rounded overflow-x-hidden">
+    <div class="border border-gray-300 rounded overflow-x-hidden">
       <div id="container-b"></div>
     </div>
   </div>
