@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { QTableColumn } from 'quasar';
-import { VisibleColumnsOptionType } from '@/components/table/index';
+import { VisibleColumnsOptionType } from '../index';
 
 const $emit = defineEmits(['selected']);
 const $props = defineProps<{

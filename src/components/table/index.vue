@@ -17,7 +17,6 @@ const visibleColumns = ref();
 const selected = (selected: string[]) => {
   visibleColumns.value = selected;
 };
-
 const cTableClass = computed(() => {
   if (columns.map(column => column.name).includes('handle')) {
     if (columns.find(column => column.name === 'handle')?.required) {
