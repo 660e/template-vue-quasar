@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref, useAttrs } from 'vue';
-import { QTableColumn } from 'quasar';
+import { computed, onMounted, ref, useAttrs, watch } from 'vue';
+import { extend, QTableColumn } from 'quasar';
+import { VisibleColumnsOptionsType } from './index';
 
 defineOptions({ name: 'c-table' });
 
@@ -12,8 +13,23 @@ const height = ref('auto');
 const width = ref('auto');
 
 const columns = $attrs.columns as QTableColumn[];
-const visibleColumnsOptions = columns.filter(column => !column.required);
-const visibleColumns = ref(visibleColumnsOptions.map(column => column.name));
+const visibleColumnsOptions = ref(
+  extend(
+    true,
+    [],
+    columns
+      .filter(column => !column.required)
+      .map(column => {
+        return {
+          name: column.name,
+          label: column.label,
+          checked: true
+        };
+      })
+  ) as VisibleColumnsOptionsType[]
+);
+
+const visibleColumns = ref(visibleColumnsOptions.value.map(column => column.name));
 const cTableClass = computed(() => {
   if (columns.map(column => column.name).includes('handle')) {
     if (columns.find(column => column.name === 'handle')?.required) {
@@ -30,6 +46,16 @@ onMounted(() => {
   height.value = `${CTableRef.value.$el.clientHeight}px`;
   width.value = `${CTableRef.value.$el.clientWidth}px`;
 });
+
+watch(
+  () => visibleColumnsOptions,
+  n => {
+    visibleColumns.value = n.value.filter(column => column.checked).map(column => column.name);
+  },
+  {
+    deep: true
+  }
+);
 </script>
 
 <template>
@@ -37,8 +63,8 @@ onMounted(() => {
     v-bind="$attrs"
     :rows-per-page-options="[20, 50, 100]"
     :style="{ height, width }"
-    :class="cTableClass"
     :visible-columns="visibleColumns"
+    :class="cTableClass"
     class="c-table"
     ref="CTableRef"
     bordered
@@ -48,21 +74,19 @@ onMounted(() => {
       <div class="flex-1">
         <div class="flex p-2 space-x-2">
           <q-space />
-          <q-btn @click="$emit('refresh')" icon="refresh" class="self-center" dense flat round>
+          <q-btn @click="$emit('refresh')" icon="refresh" dense outline>
             <q-tooltip>Refresh</q-tooltip>
           </q-btn>
-          <q-select
-            v-model="visibleColumns"
-            :options="visibleColumnsOptions"
-            :display-value="$q.lang.table.columns"
-            option-value="name"
-            dense
-            emit-value
-            map-options
-            multiple
-            options-dense
-            outlined
-          />
+          <q-btn icon="view_column" dense outline>
+            <q-tooltip>{{ $q.lang.table.columns }}</q-tooltip>
+            <q-menu>
+              <q-list dense>
+                <q-item v-for="option in visibleColumnsOptions" :key="option.name" @click="option.checked = !option.checked" clickable>
+                  <q-item-section :class="{ 'text-primary': option.checked }">{{ option.label }}</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </q-btn>
         </div>
         <q-separator />
       </div>

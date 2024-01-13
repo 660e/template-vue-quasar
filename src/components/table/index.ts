@@ -11,4 +11,10 @@ export interface CTableHandle {
   tooltip?: ((row: any) => string) | string;
 }
 
+export interface VisibleColumnsOptionsType {
+  name: string;
+  label: string;
+  checked: boolean;
+}
+
 export { CTable, CTableHandle };
