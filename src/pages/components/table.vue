@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { date, QTableColumn } from 'quasar';
 import { examplesApi } from '@/apis/examples';
-import { CTableHandleType } from '@/components/table';
+import { CTableRowHandleType } from '@/components/table';
 
 defineOptions({ name: 'components-table' });
 
@@ -23,7 +23,7 @@ const columns: QTableColumn[] = [
   { name: 'handle', label: 'Handle', field: 'handle', align: 'left', required: true }
 ];
 const loading = ref(true);
-const handles: CTableHandleType[] = [
+const rowHandles: CTableRowHandleType[] = [
   { label: 'Edit', click: row => console.log(row), disable: row => row.dob.age >= 60, tooltip: row => (row.dob.age >= 60 ? row.email : '') },
   { label: 'Remove', click: row => console.log(row), color: 'negative', hide: row => row.dob.age < 60 }
 ];
@@ -48,7 +48,7 @@ onMounted(() => {
         <q-icon :name="props.value" :color="props.value === 'male' ? 'primary' : 'negative'" size="xs" />
       </template>
       <template v-slot:handle="{ props }">
-        <c-table-handle :handles="handles" :props="props" />
+        <c-table-row-handle :handles="rowHandles" :props="props" />
       </template>
     </c-table>
   </div>

@@ -1,7 +1,7 @@
 import CTable from './index.vue';
-import CTableHandle from './handle.vue';
+import CTableRowHandle from './row-handle.vue';
 
-export interface CTableHandleType {
+export interface CTableRowHandleType {
   label: string;
   click: (row: any) => void;
   color?: ((row: any) => string) | string;
@@ -16,4 +16,4 @@ export interface VisibleColumnsOptionType {
   selected: boolean;
 }
 
-export { CTable, CTableHandle };
+export { CTable, CTableRowHandle };

@@ -1,23 +1,23 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from 'vue';
-import { CTableHandleType } from './index';
+import { CTableRowHandleType } from './index';
 
-defineOptions({ name: 'c-table-handle' });
+defineOptions({ name: 'c-table-row-handle' });
 
 const $props = defineProps<{
-  handles: CTableHandleType[];
+  handles: CTableRowHandleType[];
   props: any;
 }>();
 
 const handles = ref($props.handles);
 
-const color = (handle: CTableHandleType) => {
+const color = (handle: CTableRowHandleType) => {
   return typeof handle.color === 'function' ? handle.color($props.props.row) : handle.color || 'primary';
 };
-const disable = (handle: CTableHandleType) => {
+const disable = (handle: CTableRowHandleType) => {
   return typeof handle.disable === 'function' ? handle.disable($props.props.row) : handle.disable;
 };
-const tooltip = (handle: CTableHandleType) => {
+const tooltip = (handle: CTableRowHandleType) => {
   return typeof handle.tooltip === 'function' ? handle.tooltip($props.props.row) : handle.tooltip;
 };
 
