@@ -8,6 +8,9 @@ import RefreshComponent from './components/refresh.vue';
 import ColumnsComponent from './components/columns.vue';
 
 defineOptions({ name: 'c-table' });
+defineProps<{
+  handles: CTableHandleType[];
+}>();
 
 const CTableRef = ref();
 const height = ref('auto');
@@ -53,7 +56,7 @@ onMounted(() => {
     <template v-slot:top>
       <div class="flex-1">
         <div class="flex p-2 space-x-2">
-          <handle-component :handles="($attrs.handles as CTableHandleType[])" />
+          <handle-component :handles="handles" />
           <q-space />
           <refresh-component @refresh="$emit('refresh')" />
           <columns-component :columns="columns" @selected="selected" />
