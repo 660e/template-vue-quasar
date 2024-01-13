@@ -2,7 +2,8 @@
 import { computed, onMounted, ref, useAttrs } from 'vue';
 import { QTableColumn } from 'quasar';
 
-import ViewColumn from './components/view-column.vue';
+import ColumnsComponent from './components/columns.vue';
+import RefreshComponent from './components/refresh.vue';
 
 defineOptions({ name: 'c-table' });
 
@@ -51,10 +52,8 @@ onMounted(() => {
       <div class="flex-1">
         <div class="flex p-2 space-x-2">
           <q-space />
-          <q-btn @click="$emit('refresh')" icon="refresh" dense outline>
-            <q-tooltip>Refresh</q-tooltip>
-          </q-btn>
-          <view-column :columns="columns" @selected="selected" />
+          <refresh-component @refresh="$emit('refresh')" />
+          <columns-component :columns="columns" @selected="selected" />
         </div>
         <q-separator />
       </div>

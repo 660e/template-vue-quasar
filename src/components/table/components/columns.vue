@@ -3,6 +3,8 @@ import { ref } from 'vue';
 import { QTableColumn } from 'quasar';
 import { VisibleColumnsOptionType } from '../index';
 
+defineOptions({ name: 'columns-component' });
+
 const $emit = defineEmits(['selected']);
 const $props = defineProps<{
   columns: QTableColumn[];
