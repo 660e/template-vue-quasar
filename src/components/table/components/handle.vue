@@ -8,5 +8,16 @@ defineProps<{
 </script>
 
 <template>
-  <div>{{ handles }}</div>
+  <template v-for="handle in handles" :key="handle.label">
+    <q-btn
+      :label="handle.label"
+      :color="handle.color || 'primary'"
+      :outline="!handle.color"
+      @click="handle.click()"
+      padding="0 md"
+      dense
+      no-caps
+      unelevated
+    />
+  </template>
 </template>
