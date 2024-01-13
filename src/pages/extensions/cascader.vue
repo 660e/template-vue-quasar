@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { Node } from './models';
+import { NodeType } from './models';
 
 defineOptions({ name: 'extensions-cascader' });
 
-const model = ref<Node>();
-const options = ref<Node[]>([
+const model = ref<NodeType>();
+const options = ref<NodeType[]>([
   { id: 1, label: 'node-1', children: [] },
   {
     id: 2,
