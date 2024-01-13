@@ -3,5 +3,5 @@ defineOptions({ name: 'handle-component' });
 </script>
 
 <template>
-  <div>handle-component</div>
+  <div>{{ $attrs.handles }}</div>
 </template>

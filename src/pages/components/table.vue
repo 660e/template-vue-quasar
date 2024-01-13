@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { date, QTableColumn } from 'quasar';
 import { examplesApi } from '@/apis/examples';
-import { CTableRowHandleType } from '@/components/table';
+import { CTableHandleType, CTableRowHandleType } from '@/components/table';
 
 defineOptions({ name: 'components-table' });
 
@@ -23,6 +23,10 @@ const columns: QTableColumn[] = [
   { name: 'handle', label: 'Handle', field: 'handle', align: 'left', required: true }
 ];
 const loading = ref(true);
+const handles: CTableHandleType[] = [
+  { label: 'Create', click: () => console.log('Create'), color: 'primary' },
+  { label: 'Export', click: () => console.log('Export') }
+];
 const rowHandles: CTableRowHandleType[] = [
   { label: 'Edit', click: row => console.log(row), disable: row => row.dob.age >= 60, tooltip: row => (row.dob.age >= 60 ? row.email : '') },
   { label: 'Remove', click: row => console.log(row), color: 'negative', hide: row => row.dob.age < 60 }
@@ -43,7 +47,7 @@ onMounted(() => {
 
 <template>
   <div class="h-full p-4 flex">
-    <c-table :rows="rows" :columns="columns" :loading="loading" @refresh="refresh" class="flex-1">
+    <c-table :rows="rows" :columns="columns" :handles="handles" :loading="loading" @refresh="refresh" class="flex-1">
       <template v-slot:gender="{ props }">
         <q-icon :name="props.value" :color="props.value === 'male' ? 'primary' : 'negative'" size="xs" />
       </template>

@@ -3,6 +3,11 @@ import CTableRowHandle from './row-handle.vue';
 
 export interface CTableHandleType {
   label: string;
+  click: () => void;
+  color?: string;
+  disable?: boolean;
+  hide?: boolean;
+  tooltip?: string;
 }
 
 export interface CTableRowHandleType {
