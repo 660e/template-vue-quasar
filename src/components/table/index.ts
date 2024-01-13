@@ -1,6 +1,10 @@
 import CTable from './index.vue';
 import CTableRowHandle from './row-handle.vue';
 
+export interface CTableHandleType {
+  label: string;
+}
+
 export interface CTableRowHandleType {
   label: string;
   click: (row: any) => void;

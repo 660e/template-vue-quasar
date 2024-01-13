@@ -2,8 +2,9 @@
 import { computed, onMounted, ref, useAttrs } from 'vue';
 import { QTableColumn } from 'quasar';
 
-import ColumnsComponent from './components/columns.vue';
+import HandleComponent from './components/handle.vue';
 import RefreshComponent from './components/refresh.vue';
+import ColumnsComponent from './components/columns.vue';
 
 defineOptions({ name: 'c-table' });
 
@@ -51,6 +52,7 @@ onMounted(() => {
     <template v-slot:top>
       <div class="flex-1">
         <div class="flex p-2 space-x-2">
+          <handle-component />
           <q-space />
           <refresh-component @refresh="$emit('refresh')" />
           <columns-component :columns="columns" @selected="selected" />
