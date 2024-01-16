@@ -29,7 +29,7 @@ const selected = (option: VisibleColumnsOptionType) => {
 </script>
 
 <template>
-  <q-btn icon="view_column" dense outline>
+  <q-btn icon="view_column" color="grey-7" dense outline>
     <q-tooltip>{{ $q.lang.table.columns }}</q-tooltip>
     <q-menu>
       <q-list dense>

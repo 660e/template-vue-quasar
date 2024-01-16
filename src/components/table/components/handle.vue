@@ -11,7 +11,7 @@ defineProps<{
   <template v-for="handle in handles" :key="handle.label">
     <q-btn
       :label="handle.label"
-      :color="handle.color || 'primary'"
+      :color="handle.color || 'grey-7'"
       :outline="!handle.color"
       @click="handle.click()"
       padding="0 md"
