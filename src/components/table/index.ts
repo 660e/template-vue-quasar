@@ -20,9 +20,8 @@ export interface CTableRowHandleType {
 }
 
 export interface VisibleColumnsOptionType {
-  name: string;
   label: string;
-  selected: boolean;
+  value: string;
 }
 
 export { CTable, CTableRowHandle };

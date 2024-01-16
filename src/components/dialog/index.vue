@@ -11,7 +11,6 @@ withDefaults(
     loading: false
   }
 );
-defineEmits(['cancel', 'confirm']);
 
 const cardRef = ref();
 const position = reactive({ left: 'auto', top: 'auto', x: 0, y: 0 });
