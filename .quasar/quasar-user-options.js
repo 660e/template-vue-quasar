@@ -11,6 +11,11 @@
  * Boot files are your "main.js"
  **/
 
-import { LoadingBar } from 'quasar';
 
-export default { config: { loadingBar: { skipHijack: true } }, plugins: { LoadingBar } };
+
+import {LoadingBar} from 'quasar'
+
+
+
+export default { config: {"loadingBar":{"skipHijack":true}},plugins: {LoadingBar} }
+
