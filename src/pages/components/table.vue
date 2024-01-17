@@ -25,7 +25,14 @@ const columns: QTableColumn[] = [
 const loading = ref(true);
 const handles: CTableHandleType[] = [
   { label: 'Create', click: () => console.log('Create'), color: 'primary' },
-  { label: 'Export', click: () => console.log('Export') }
+  {
+    label: 'Data',
+    click: () => console.log('Data'),
+    children: [
+      { label: 'Import', click: () => console.log('Import') },
+      { label: 'Export', click: () => console.log('Export') }
+    ]
+  }
 ];
 const rowHandles: CTableRowHandleType[] = [
   { label: 'Edit', click: row => console.log(row), disable: row => row.dob.age >= 60, tooltip: row => (row.dob.age >= 60 ? row.email : '') },

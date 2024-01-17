@@ -8,6 +8,7 @@ export interface CTableHandleType {
   disable?: boolean;
   hide?: boolean;
   tooltip?: string;
+  children?: CTableHandleType[];
 }
 
 export interface CTableRowHandleType {
