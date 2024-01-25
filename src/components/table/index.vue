@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref, useAttrs } from 'vue';
+import { computed, ref, useAttrs } from 'vue';
 import { QTableColumn } from 'quasar';
 import { CTableHandleType } from './index';
 
@@ -11,9 +11,6 @@ defineOptions({ name: 'c-table' });
 defineProps<{
   handles: CTableHandleType[];
 }>();
-
-const CTableRef = ref();
-const width = ref('auto');
 
 const $attrs = useAttrs();
 const columns = $attrs.columns as QTableColumn[];
@@ -33,21 +30,15 @@ const cTableClass = computed(() => {
     return null;
   }
 });
-
-onMounted(() => {
-  width.value = `${CTableRef.value.$el.clientWidth}px`;
-});
 </script>
 
 <template>
   <q-table
     v-bind="$attrs"
-    :rows-per-page-options="[20, 50, 100]"
-    :style="{ width }"
+    :rows-per-page-options="[10, 20, 50, 100]"
     :visible-columns="visibleColumns"
     :class="cTableClass"
     class="c-table"
-    ref="CTableRef"
     bordered
     flat
   >
