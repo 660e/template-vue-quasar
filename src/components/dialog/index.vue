@@ -33,15 +33,10 @@ const handlePan = (ev: any) => {
         <q-space v-touch-pan.prevent.mouse="handlePan" class="self-stretch cursor-grab" />
         <q-btn :disable="loading" color="negative" icon="close" padding="sm" size="sm" flat v-close-popup />
       </div>
-
       <q-separator />
+
       <slot />
-      <q-separator />
-
-      <div class="bg-gray-100 flex justify-end p-2 space-x-2">
-        <q-btn :disable="loading" @click="$emit('update:model-value', false)" label="Cancel" color="primary" no-caps flat />
-        <q-btn :loading="loading" @click="$emit('confirm')" label="Confirm" color="primary" no-caps unelevated />
-      </div>
+      <slot name="footer" />
     </q-card>
   </q-dialog>
 </template>
