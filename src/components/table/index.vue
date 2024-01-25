@@ -13,7 +13,6 @@ defineProps<{
 }>();
 
 const CTableRef = ref();
-const height = ref('auto');
 const width = ref('auto');
 
 const $attrs = useAttrs();
@@ -36,7 +35,6 @@ const cTableClass = computed(() => {
 });
 
 onMounted(() => {
-  height.value = `${CTableRef.value.$el.clientHeight}px`;
   width.value = `${CTableRef.value.$el.clientWidth}px`;
 });
 </script>
@@ -45,7 +43,7 @@ onMounted(() => {
   <q-table
     v-bind="$attrs"
     :rows-per-page-options="[20, 50, 100]"
-    :style="{ height, width }"
+    :style="{ width }"
     :visible-columns="visibleColumns"
     :class="cTableClass"
     class="c-table"
