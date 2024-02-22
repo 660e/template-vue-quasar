@@ -14,7 +14,7 @@ const toggle = () => {
   window.dispatchEvent(new Event('resize'));
 };
 
-const tweak = (offset: number, height: number) => ({ height: `${height - offset - 64 - 2}px` });
+const tweak = (offset: number, height: number) => ({ height: `${height - offset - (36 + 1) * 2}px` });
 
 const filterKeepAlive = (data: RouteRecordRaw[]) => {
   const results: string[] = [];
@@ -43,7 +43,7 @@ const include: string[] = filterKeepAlive(routes);
       <menu-component />
     </q-drawer>
     <q-page-container>
-      <div class="h-8"></div>
+      <div class="h-9"></div>
       <q-separator />
       <q-page :style-fn="tweak" class="overflow-y-auto overflow-x-hidden">
         <router-view v-slot="{ Component }">
@@ -55,8 +55,8 @@ const include: string[] = filterKeepAlive(routes);
         </router-view>
       </q-page>
       <q-separator />
-      <div class="px-4 h-8 flex justify-between items-center">
-        <div class="flex space-x-1">
+      <div class="px-4 h-9 flex justify-between items-center">
+        <div class="flex space-x-2">
           <template v-for="(route, index) in $route.matched.filter(e => e.name)" :key="index">
             <span v-if="index !== 0">/</span>
             <span>{{ route.meta.title }}</span>
