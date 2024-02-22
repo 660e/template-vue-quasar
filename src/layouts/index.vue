@@ -14,7 +14,7 @@ const toggle = () => {
   window.dispatchEvent(new Event('resize'));
 };
 
-const tweak = (offset: number, height: number) => ({ height: `${height - offset - 32 - 1}px` });
+const tweak = (offset: number, height: number) => ({ height: `${height - offset - 64 - 2}px` });
 
 const filterKeepAlive = (data: RouteRecordRaw[]) => {
   const results: string[] = [];
@@ -54,16 +54,16 @@ const include: string[] = filterKeepAlive(routes);
           </transition>
         </router-view>
       </q-page>
-    </q-page-container>
-    <q-footer class="bg-transparent text-dark px-4 h-8 flex items-center" bordered>
-      <div class="flex-1 flex space-x-1">
-        <template v-for="(route, index) in $route.matched.filter(e => e.name)" :key="index">
-          <span v-if="index !== 0">/</span>
-          <span>{{ route.meta.title }}</span>
-        </template>
+      <q-separator />
+      <div class="px-4 h-8 flex justify-between items-center">
+        <div class="flex space-x-1">
+          <template v-for="(route, index) in $route.matched.filter(e => e.name)" :key="index">
+            <span v-if="index !== 0">/</span>
+            <span>{{ route.meta.title }}</span>
+          </template>
+        </div>
+        <div class="text-gray-400 text-xs">{{ $package.version }}-{{ $q.version }}</div>
       </div>
-      <div class="flex-1 text-center">Lorem, ipsum dolor.</div>
-      <div class="flex-1 text-gray-400 text-xs text-right">{{ $package.version }}-{{ $q.version }}</div>
-    </q-footer>
+    </q-page-container>
   </q-layout>
 </template>
