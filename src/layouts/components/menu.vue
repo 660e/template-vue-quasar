@@ -13,16 +13,15 @@ defineOptions({ name: 'menu-component' });
         :icon="route.meta?.icon"
         :default-opened="route.name === $route.matched[1]?.name"
         group="group"
-        dense
       >
-        <q-item v-for="child in route.children" :key="child.name" :to="{ name: child.name }" clickable dense v-ripple>
+        <q-item v-for="child in route.children" :key="child.name" :to="{ name: child.name }" clickable v-ripple>
           <q-item-section avatar>
             <q-icon />
           </q-item-section>
           <q-item-section>{{ child.meta?.title }}</q-item-section>
         </q-item>
       </q-expansion-item>
-      <q-item v-else :to="{ name: route.name }" clickable dense v-ripple>
+      <q-item v-else :to="{ name: route.name }" clickable v-ripple>
         <q-item-section avatar>
           <q-icon :name="route.meta?.icon" />
         </q-item-section>

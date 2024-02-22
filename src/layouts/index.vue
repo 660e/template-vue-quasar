@@ -43,6 +43,8 @@ const include: string[] = filterKeepAlive(routes);
       <menu-component />
     </q-drawer>
     <q-page-container>
+      <div class="h-8"></div>
+      <q-separator />
       <q-page :style-fn="tweak" class="overflow-y-auto overflow-x-hidden">
         <router-view v-slot="{ Component }">
           <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
@@ -52,18 +54,16 @@ const include: string[] = filterKeepAlive(routes);
           </transition>
         </router-view>
       </q-page>
-      <div>
-        <q-separator />
-        <div class="h-8 overflow-hidden flex justify-between items-center px-4">
-          <div class="flex space-x-1">
-            <template v-for="(route, index) in $route.matched.filter(e => e.name)" :key="index">
-              <span v-if="index !== 0">/</span>
-              <span>{{ route.meta.title }}</span>
-            </template>
-          </div>
-          <div class="text-gray-400 text-xs">{{ $package.version }}-{{ $q.version }}</div>
-        </div>
-      </div>
     </q-page-container>
+    <q-footer class="bg-transparent text-dark px-4 h-8 flex items-center" bordered>
+      <div class="flex-1 flex space-x-1">
+        <template v-for="(route, index) in $route.matched.filter(e => e.name)" :key="index">
+          <span v-if="index !== 0">/</span>
+          <span>{{ route.meta.title }}</span>
+        </template>
+      </div>
+      <div class="flex-1 text-center">Lorem, ipsum dolor.</div>
+      <div class="flex-1 text-gray-400 text-xs text-right">{{ $package.version }}-{{ $q.version }}</div>
+    </q-footer>
   </q-layout>
 </template>
