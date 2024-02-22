@@ -14,6 +14,8 @@ const toggle = () => {
   window.dispatchEvent(new Event('resize'));
 };
 
+const tab = ref('mails');
+
 const tweak = (offset: number, height: number) => ({ height: `${height - offset - (36 + 1) * 2}px` });
 
 const filterKeepAlive = (data: RouteRecordRaw[]) => {
@@ -43,7 +45,13 @@ const include: string[] = filterKeepAlive(routes);
       <menu-component />
     </q-drawer>
     <q-page-container>
-      <div class="h-9"></div>
+      <div>
+        <q-tabs v-model="tab" align="left" active-color="primary" indicator-color="primary" dense>
+          <q-tab name="mails" label="Mails" />
+          <q-tab name="alarms" label="Alarms" />
+          <q-tab name="movies" label="Movies" />
+        </q-tabs>
+      </div>
       <q-separator />
       <q-page :style-fn="tweak" class="overflow-y-auto overflow-x-hidden">
         <router-view v-slot="{ Component }">
