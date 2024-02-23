@@ -2,9 +2,9 @@
 import { ref } from 'vue';
 import { routes } from '@/router';
 import { RouteRecordRaw } from 'vue-router';
-import $package from '../../package.json';
 
 import AppHeader from './components/app-header.vue';
+import AppFooter from './components/app-footer.vue';
 
 import MenuComponent from './components/menu.vue';
 
@@ -63,16 +63,7 @@ const include: string[] = filterKeepAlive(routes);
           </transition>
         </router-view>
       </q-page>
-      <q-separator />
-      <div class="px-4 h-9 flex justify-between items-center">
-        <div class="flex space-x-2">
-          <template v-for="(route, index) in $route.matched.filter(e => e.name)" :key="index">
-            <span v-if="index !== 0">/</span>
-            <span>{{ route.meta.title }}</span>
-          </template>
-        </div>
-        <div class="text-gray-400 text-xs">{{ $package.version }}-{{ $q.version }}</div>
-      </div>
+      <app-footer />
     </q-page-container>
   </q-layout>
 </template>
