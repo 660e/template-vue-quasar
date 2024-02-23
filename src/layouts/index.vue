@@ -5,6 +5,7 @@ import { RouteRecordRaw } from 'vue-router';
 
 import AppHeader from './components/app-header.vue';
 import AppFooter from './components/app-footer.vue';
+import AppTabs from './components/app-tabs.vue';
 
 import MenuComponent from './components/menu.vue';
 
@@ -15,8 +16,6 @@ const toggle = () => {
   drawer.value = !drawer.value;
   window.dispatchEvent(new Event('resize'));
 };
-
-const tab = ref('mails');
 
 const tweak = (offset: number, height: number) => ({ height: `${height - offset - (36 + 1) * 2}px` });
 
@@ -39,14 +38,7 @@ const include: string[] = filterKeepAlive(routes);
       <menu-component />
     </q-drawer>
     <q-page-container>
-      <div>
-        <q-tabs v-model="tab" align="left" active-color="primary" indicator-color="primary" dense>
-          <q-tab name="mails" label="Mails" />
-          <q-tab name="alarms" label="Alarms" />
-          <q-tab name="movies" label="Movies" />
-        </q-tabs>
-      </div>
-      <q-separator />
+      <app-tabs />
       <q-page :style-fn="tweak" class="overflow-y-auto overflow-x-hidden relative">
         <div
           @click="toggle"
