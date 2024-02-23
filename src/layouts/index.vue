@@ -4,6 +4,8 @@ import { routes } from '@/router';
 import { RouteRecordRaw } from 'vue-router';
 import $package from '../../package.json';
 
+import AppHeader from './components/app-header.vue';
+
 import MenuComponent from './components/menu.vue';
 
 defineOptions({ name: 'app-layout' });
@@ -32,14 +34,7 @@ const include: string[] = filterKeepAlive(routes);
 
 <template>
   <q-layout view="hhh lpr fff" class="overflow-hidden">
-    <q-header>
-      <q-toolbar>
-        <q-toolbar-title>{{ $package.productName }}</q-toolbar-title>
-        <q-btn :icon="$q.dark.isActive ? 'brightness_5' : 'brightness_4'" @click="$q.dark.toggle()" dense flat round>
-          <q-tooltip>{{ $q.dark.isActive ? 'Light' : 'Dark' }}</q-tooltip>
-        </q-btn>
-      </q-toolbar>
-    </q-header>
+    <app-header />
     <q-drawer v-model="drawer" :width="200" bordered>
       <menu-component />
     </q-drawer>
