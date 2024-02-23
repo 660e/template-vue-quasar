@@ -3,11 +3,11 @@
 @import 'tailwindcss/utilities';
 
 ::-webkit-scrollbar {
-  height: 6px;
-  width: 6px;
+  height: 4px;
+  width: 4px;
 }
 ::-webkit-scrollbar-thumb {
-  border-radius: 3px;
+  border-radius: 9999px;
   background-color: theme('colors.gray.400');
 }
 ::-webkit-scrollbar-thumb:hover {
