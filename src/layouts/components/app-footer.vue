@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import AppBreadcrumbs from './app-breadcrumbs.vue';
-import AppVersion from './app-version.vue';
+import AppBreadcrumbs from '@/layouts/components/app-breadcrumbs.vue';
+import AppVersion from '@/layouts/components/app-version.vue';
 </script>
 
 <template>

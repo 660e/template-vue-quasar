@@ -3,9 +3,9 @@ import { ref } from 'vue';
 import { routes } from '@/router';
 import { RouteRecordRaw } from 'vue-router';
 
-import AppHeader from './components/app-header.vue';
-import AppFooter from './components/app-footer.vue';
-import AppTabs from './components/app-tabs.vue';
+import AppHeader from '@/layouts/components/app-header.vue';
+import AppFooter from '@/layouts/components/app-footer.vue';
+import AppTabs from '@/layouts/components/app-tabs.vue';
 
 import MenuComponent from './components/menu.vue';
 
