@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import $package from '../../../package.json';
+
+import AppAppearance from '@/layouts/components/app-appearance.vue';
 </script>
 
 <template>
@@ -7,8 +9,6 @@ import $package from '../../../package.json';
     <div class="flex-1">
       <span class="text-xl">{{ $package.productName }}</span>
     </div>
-    <q-btn :icon="$q.dark.isActive ? 'brightness_5' : 'brightness_4'" @click="$q.dark.toggle()" dense flat round>
-      <q-tooltip>{{ $q.dark.isActive ? 'Light' : 'Dark' }}</q-tooltip>
-    </q-btn>
+    <app-appearance />
   </q-header>
 </template>
