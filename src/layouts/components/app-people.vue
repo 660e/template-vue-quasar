@@ -10,7 +10,14 @@
           <img src="https://avatars.githubusercontent.com/u/28943787" />
         </q-avatar>
       </div>
-      <div class="h-40"></div>
+      <q-list class="mt-20" dense>
+        <q-item clickable v-ripple>
+          <q-item-section>Appearance</q-item-section>
+          <q-item-section side>
+            <q-icon name="keyboard_arrow_right" />
+          </q-item-section>
+        </q-item>
+      </q-list>
     </q-popup-proxy>
   </q-btn>
 </template>
