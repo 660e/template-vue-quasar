@@ -6,11 +6,9 @@
     <q-popup-proxy class="w-80">
       <div class="h-20 bg-blue-100 relative">
         <div class="text-center pt-4">Quasar</div>
-        <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 border-4 border-white rounded-full">
-          <q-avatar size="72px">
-            <img src="https://avatars.githubusercontent.com/u/28943787" />
-          </q-avatar>
-        </div>
+        <q-avatar class="absolute -bottom-9 left-1/2 -translate-x-1/2" size="72px">
+          <img src="https://avatars.githubusercontent.com/u/28943787" />
+        </q-avatar>
       </div>
       <div class="h-40"></div>
     </q-popup-proxy>
